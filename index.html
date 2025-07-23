@@ -68,13 +68,17 @@
       margin-bottom: 1rem;
       color: #ff6600;
     }
-    form input, form select {
+    form input, form select, form textarea {
       width: 90%;
       padding: 0.8rem;
       margin: 0.5rem 0;
       border: none;
       border-radius: 8px;
       font-size: 1rem;
+    }
+    form textarea {
+      height: 100px;
+      resize: vertical;
     }
     form button {
       background: linear-gradient(45deg, #ff0066, #ff6600);
@@ -143,6 +147,7 @@
       <option>Nairobi Skyline</option>
     </select>
     <input type="text" name="contact" placeholder="Your WhatsApp or Email" required />
+    <textarea name="details" placeholder="Any text you want on the wallpaper, color preferences, etc." required></textarea>
     
     <!-- Hide email from user -->
     <input type="hidden" name="_captcha" value="false" />
@@ -153,7 +158,7 @@
   </form>
 
   <div id="thankYouMessage">
-    <p>Thank you for your order! We will contact you on WhatsApp or Email soon.</p>
+    <p>✅ Thank you for your order! We’ll contact you on WhatsApp or Email soon.</p>
     <p><a href="#" onclick="resetForm()">Return to main site</a></p>
   </div>
 

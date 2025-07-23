@@ -16,6 +16,10 @@
       padding: 2rem;
       background: linear-gradient(45deg, #ff0066, #ff6600);
     }
+    header img {
+      height: 80px;
+      margin-bottom: 10px;
+    }
     header h1 {
       margin: 0;
       font-size: 3rem;
@@ -75,18 +79,10 @@
       border: none;
       border-radius: 8px;
       font-size: 1rem;
-      background: #1f1f1f;
-      color: #fff;
-      transition: all 0.3s ease;
     }
     form textarea {
       min-height: 100px;
       resize: vertical;
-    }
-    form input:focus, form select:focus, form textarea:focus {
-      outline: none;
-      box-shadow: 0 0 10px #ff6600;
-      background: #2a2a2a;
     }
     form button {
       background: linear-gradient(45deg, #ff0066, #ff6600);
@@ -98,11 +94,6 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    form button:hover {
-      opacity: 0.9;
-      transform: scale(1.03);
     }
     footer {
       background: #000;
@@ -126,6 +117,7 @@
 </head>
 <body>
   <header>
+    <img src="https://i.imgur.com/4dW8K0J.png" alt="Neon Dragon Logo">
     <h1>KENYA AESTHETICS</h1>
     <p>🔥 Custom Wallpapers – Only KES 100 🔥</p>
   </header>
@@ -160,11 +152,9 @@
       <option>Nairobi Skyline</option>
     </select>
     <input type="text" name="contact" placeholder="Your WhatsApp or Email" required />
-
-    <!-- NEW AESTHETIC EXTRA INFO BOX -->
-    <textarea name="extra_details" placeholder="Add any extra details you want (colors, text, vibe, etc.)"></textarea>
+    <textarea name="extraInfo" placeholder="Any extra details (e.g. preferred colors, text, etc.)"></textarea>
     
-    <!-- Hidden fields for FormSubmit -->
+    <!-- Hide email from user -->
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!" />
     <input type="hidden" name="_template" value="box" />
@@ -173,30 +163,25 @@
   </form>
 
   <div id="thankYouMessage">
-    <p>✅ Thank you for your order! We’ll contact you on WhatsApp or Email soon.</p>
-    <p><a href="#" onclick="resetForm()">🔙 Return to main site</a></p>
+    <p>✅ Thank you for your order! We’ll contact you soon.</p>
+    <p><a href="#" onclick="resetForm()">Return to main site</a></p>
   </div>
 
   <!-- Invisible iframe to handle form submission without page reload -->
   <iframe name="dummyframe" style="display:none;"></iframe>
 
   <footer>
-    &copy; 2025 Kenya Aesthetics | Awaiting epic dragon logo 🐉
+    &copy; 2025 Kenya Aesthetics | Neon Dragon Vibes 🐉
   </footer>
 
   <script>
     function showThankYou(event) {
-      event.preventDefault(); // prevent normal form submission
+      event.preventDefault(); 
       const form = document.getElementById('orderForm');
-      
-      // Submit form using the invisible iframe to avoid page reload
       form.submit();
-
-      // Hide form, show thank you message
       form.style.display = 'none';
       document.getElementById('thankYouMessage').style.display = 'block';
     }
-
     function resetForm() {
       const form = document.getElementById('orderForm');
       form.reset();

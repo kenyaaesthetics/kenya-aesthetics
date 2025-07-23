@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kenya Aesthetics | Custom Wallpapers</title>
   <style>
     body {
@@ -93,6 +93,18 @@
       font-size: 0.9rem;
       color: #777;
     }
+    #thankYouMessage {
+      display: none;
+      background: #141414;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      color: #33ff99;
+      font-size: 1.4rem;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,255,153,0.5);
+    }
   </style>
 </head>
 <body>
@@ -103,15 +115,15 @@
 
   <section class="samples">
     <div>
-      <img src="https://via.placeholder.com/400x800/000000/FF00FF?text=Neon+Glow+Sample" alt="Neon Glow Sample">
+      <img src="https://via.placeholder.com/400x800/000000/FF00FF?text=Neon+Glow+Sample" alt="Neon Glow Sample" />
       <p>Neon Glow Name</p>
     </div>
     <div>
-      <img src="https://via.placeholder.com/400x800/ff9966/000000?text=Safari+Sunset" alt="Safari Sunset">
+      <img src="https://via.placeholder.com/400x800/ff9966/000000?text=Safari+Sunset" alt="Safari Sunset" />
       <p>Safari Sunset</p>
     </div>
     <div>
-      <img src="https://via.placeholder.com/400x800/333399/ffffff?text=Nairobi+Skyline" alt="Nairobi Skyline">
+      <img src="https://via.placeholder.com/400x800/333399/ffffff?text=Nairobi+Skyline" alt="Nairobi Skyline" />
       <p>Nairobi Skyline</p>
     </div>
   </section>
@@ -121,25 +133,56 @@
     <p>After payment, fill the form below and we’ll WhatsApp your custom wallpaper!</p>
   </section>
 
-  <form action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
+  <form id="orderForm" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST" target="dummyframe" onsubmit="showThankYou(event)">
     <h2>Order Your Wallpaper</h2>
-    <input type="text" name="name" placeholder="Your Full Name" required>
+    <input type="text" name="name" placeholder="Your Full Name" required />
     <select name="style" required>
       <option value="">Select Style</option>
       <option>Neon Glow</option>
       <option>Safari Sunset</option>
       <option>Nairobi Skyline</option>
     </select>
-    <input type="text" name="contact" placeholder="Your WhatsApp or Email" required>
-    <button type="submit">Submit Order</button>
+    <input type="text" name="contact" placeholder="Your WhatsApp or Email" required />
+    
     <!-- Hide email from user -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!">
-    <input type="hidden" name="_template" value="box">
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!" />
+    <input type="hidden" name="_template" value="box" />
+    
+    <button type="submit">Submit Order</button>
   </form>
+
+  <div id="thankYouMessage">
+    <p>Thank you for your order! We will contact you on WhatsApp or Email soon.</p>
+    <p><a href="#" onclick="resetForm()">Return to main site</a></p>
+  </div>
+
+  <!-- Invisible iframe to handle form submission without page reload -->
+  <iframe name="dummyframe" style="display:none;"></iframe>
 
   <footer>
     &copy; 2025 Kenya Aesthetics | Awaiting epic dragon logo 🐉
   </footer>
+
+  <script>
+    function showThankYou(event) {
+      event.preventDefault(); // prevent normal form submission
+      const form = document.getElementById('orderForm');
+      
+      // Submit form using the invisible iframe to avoid page reload
+      form.submit();
+
+      // Hide form, show thank you message
+      form.style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+    }
+
+    function resetForm() {
+      const form = document.getElementById('orderForm');
+      form.reset();
+      form.style.display = 'block';
+      document.getElementById('thankYouMessage').style.display = 'none';
+    }
+  </script>
 </body>
 </html>

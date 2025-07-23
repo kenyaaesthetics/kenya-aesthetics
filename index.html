@@ -17,8 +17,9 @@
       background: linear-gradient(45deg, #ff0066, #ff6600);
     }
     header img {
-      height: 80px;
-      margin-bottom: 10px;
+      max-width: 180px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px #ff00ff);
     }
     header h1 {
       margin: 0;
@@ -80,10 +81,6 @@
       border-radius: 8px;
       font-size: 1rem;
     }
-    form textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
     form button {
       background: linear-gradient(45deg, #ff0066, #ff6600);
       color: #fff;
@@ -117,7 +114,9 @@
 </head>
 <body>
   <header>
-    <img src="https://i.imgur.com/4dW8K0J.png" alt="Neon Dragon Logo">
+    <!-- Embedded Dragon Logo -->
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAUVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////9As6HqAAAAG3RSTlMA3zCAf/8g4N/fEBCvXyCgQM8YzJuFGw7n4QcAAAPZSURBVHja7d1bUuNADIXhBcRyL/j/f2JjL5KkmMsy1zvn0fQ2Tkqrp2xrrRYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAE9u3WQNs4w73Zuk72b+Mmv5JkcvJ02DPaTP7vm5LDqaJeTrYXa1rcvy0b+Rk2k77PYTk/Jxr6pHs1/NXvllLf7zGSdZPb6us85q4nmXhJuGzOdD2/xAq7oazfTvkxu3b48thXdbmbwNm70QWusueZ++oTHZNPQ+pOdWWZXt2u6mJXf8+3uBd9OHxks9Fl22PMzU/aiNe9cdl8NxOP0Iv3g/27z4rtyzZWvuFvNYmbvveD5d6XE/vS4pK13K7Fvrx3jwO23a2pS0kY3kJz7zOaLvzDP+8rybo79kYfOvNPe29NtNRLr1R7vP7I0ZnS6Y9dkfXfvZsjei0uWHNq60S1ty/mN4vZ8vZx9dpLNs3fHnR4/wvcbnd88OYdU88bTrNx/Tw6Fj+8jp1Z9W89L/ObFqutrvnz4opdX09vXpvrOS3hHr6r7nmcG+Pj9XbV0sdO39bTfDb5bV5fskkXP63x0/tjT7KPQXnk24/M++/Mr12ddV+mVzuONsvzmR+ttbOxNfFydUb8puzdpbZ7fPNI3J+VbuN/zPeqcE1vV26cHw+Z1NHtzmqGrm+uy52decnV5aHtW+8PRbHkTZOdWHtvf8xjs5ffsuXTX+Yb5drq2txv67Nx2+q3j+2FtO77nHf7Rb/33Nsz89/1mUp7mb7slkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAcfgFZ1cz64IfTHAAAAAASUVORK5CYII=" alt="Dragon Logo" />
+    
     <h1>KENYA AESTHETICS</h1>
     <p>🔥 Custom Wallpapers – Only KES 100 🔥</p>
   </header>
@@ -152,9 +151,9 @@
       <option>Nairobi Skyline</option>
     </select>
     <input type="text" name="contact" placeholder="Your WhatsApp or Email" required />
-    <textarea name="extraInfo" placeholder="Any extra details (e.g. preferred colors, text, etc.)"></textarea>
+    <textarea name="details" placeholder="Any extra info for your wallpaper..." rows="4"></textarea>
     
-    <!-- Hide email from user -->
+    <!-- Hidden form fields -->
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!" />
     <input type="hidden" name="_template" value="box" />
@@ -163,15 +162,15 @@
   </form>
 
   <div id="thankYouMessage">
-    <p>✅ Thank you for your order! We’ll contact you soon.</p>
+    <p>✅ Thank you for your order! We’ll contact you on WhatsApp or Email soon.</p>
     <p><a href="#" onclick="resetForm()">Return to main site</a></p>
   </div>
 
-  <!-- Invisible iframe to handle form submission without page reload -->
+  <!-- Invisible iframe for form submission -->
   <iframe name="dummyframe" style="display:none;"></iframe>
 
   <footer>
-    &copy; 2025 Kenya Aesthetics | Neon Dragon Vibes 🐉
+    &copy; 2025 Kenya Aesthetics | Neon Dragon Logo 🐉
   </footer>
 
   <script>
@@ -191,5 +190,3 @@
   </script>
 </body>
 </html>
-
-

@@ -119,11 +119,13 @@
 </head>
 <body>
   <header>
+    <!-- ⚡ Lightning Bolt Icon -->
     <div class="icon">⚡</div>
     <h1>KENYA AESTHETICS</h1>
     <p>🔥 Custom Wallpapers – Only KES 100 🔥</p>
   </header>
 
+  <!-- SAMPLE WALLPAPERS -->
   <section class="samples">
     <div>
       <img src="https://via.placeholder.com/400x800/000000/FF00FF?text=Neon+Glow+Sample" alt="Neon Glow Sample" />
@@ -139,11 +141,13 @@
     </div>
   </section>
 
+  <!-- PAYMENT INSTRUCTIONS -->
   <section class="payment">
     <p><strong>Pay only KES 100 via M-Pesa to 0797507477</strong></p>
     <p>After payment, fill the form below and we’ll WhatsApp your custom wallpaper!</p>
   </section>
 
+  <!-- ORDER FORM -->
   <form id="orderForm" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST" target="dummyframe" onsubmit="showThankYou(event)">
     <h2>Order Your Wallpaper</h2>
     <input type="text" name="name" placeholder="Your Full Name" required />
@@ -156,7 +160,7 @@
     <input type="text" name="contact" placeholder="Your WhatsApp or Email" required />
     <textarea name="extra_info" placeholder="Any extra info (e.g. color, text style)"></textarea>
     
-    <!-- Hidden fields -->
+    <!-- Hidden fields for FormSubmit -->
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!" />
     <input type="hidden" name="_template" value="box" />
@@ -164,12 +168,13 @@
     <button type="submit">Submit Order</button>
   </form>
 
+  <!-- Thank You Message -->
   <div id="thankYouMessage">
-    <p>Thank you for your order! We will contact you on WhatsApp or Email soon.</p>
+    <p>✅ Thank you for your order! We will contact you on WhatsApp or Email soon.</p>
     <p><a href="#" onclick="resetForm()">Return to main site</a></p>
   </div>
 
-  <!-- Invisible iframe to handle form submission without page reload -->
+  <!-- Invisible iframe to handle form submission without reload -->
   <iframe name="dummyframe" style="display:none;"></iframe>
 
   <footer>
@@ -194,4 +199,3 @@
   </script>
 </body>
 </html>
-

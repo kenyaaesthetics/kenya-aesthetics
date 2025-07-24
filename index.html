@@ -3,212 +3,270 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kenya Aesthetics | Custom Wallpapers</title>
+  <title>Kenya Aesthetics | Premium Wallpapers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: #0d0d0d;
-      color: #fff;
-      text-align: center;
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* HERO SECTION */
     header {
-      padding: 2rem;
-      background: linear-gradient(45deg, #ff0066, #ff6600);
+      text-align: center;
+      padding: 6rem 1rem 4rem;
+      animation: fadeIn 1.2s ease-out;
     }
-    .icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      color: #ffff33;
-      text-shadow: 0 0 15px #ffff66, 0 0 25px #ffcc00;
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.2rem;
+      animation: fadeUp 1s ease-out;
     }
+
     header h1 {
-      margin: 0;
-      font-size: 3rem;
+      font-size: 4rem;
       font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #ff0066, #33ff99);
-      -webkit-background-clip: text;
-      color: transparent;
+      letter-spacing: -1px;
+      color: #000;
+      animation: fadeUp 1.2s ease-out;
     }
+
     header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-      color: #ddd;
+      font-size: 1.4rem;
+      color: #555;
+      margin-top: 1rem;
+      animation: fadeUp 1.4s ease-out;
     }
+
+    /* SAMPLES GRID */
     .samples {
+      max-width: 1300px;
+      margin: 6rem auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+      padding: 0 1.5rem;
     }
-    .samples img {
+
+    .sample-card {
+      background: #fafafa;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.06);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      opacity: 0;
+      animation: fadeUp 1s forwards;
+    }
+
+    .sample-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    }
+
+    .sample-card img {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
     }
-    .samples img:hover {
+    .sample-card:hover img {
       transform: scale(1.05);
     }
-    .samples p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-    .payment {
-      background: #1a1a1a;
-      padding: 2rem;
+
+    .sample-card p {
+      padding: 1.2rem;
+      font-weight: 600;
+      text-align: center;
       font-size: 1.2rem;
+    }
+
+    /* PAYMENT SECTION */
+    .payment {
+      text-align: center;
+      padding: 6rem 1rem;
+      background: linear-gradient(135deg, #f7f7f7, #fff);
     }
     .payment strong {
-      color: #33ff99;
-      font-size: 1.4rem;
+      font-size: 1.8rem;
+      color: #000;
+      display: block;
+      margin-bottom: 1rem;
     }
+
+    /* FORM SECTION */
     form {
-      background: #141414;
-      padding: 2rem;
-      max-width: 500px;
-      margin: 2rem auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      max-width: 550px;
+      background: #fff;
+      margin: 5rem auto;
+      padding: 3rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      animation: fadeUp 1.3s ease-out;
     }
     form h2 {
-      margin-bottom: 1rem;
-      color: #ff6600;
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
     }
     form input, form select, form textarea {
-      width: 90%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: none;
-      border-radius: 8px;
+      width: 100%;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      border: 1px solid #ddd;
+      border-radius: 14px;
       font-size: 1rem;
+      background: #fafafa;
+      transition: all 0.3s ease;
     }
-    form textarea {
-      resize: none;
-      height: 100px;
+    form input:focus, form select:focus, form textarea:focus {
+      border-color: #000;
+      background: #fff;
+      outline: none;
     }
     form button {
-      background: linear-gradient(45deg, #ff0066, #ff6600);
-      color: #fff;
-      padding: 1rem;
-      border: none;
       width: 100%;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    footer {
+      padding: 1.2rem;
+      margin-top: 1rem;
       background: #000;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
+    form button:hover {
+      background: #333;
+    }
+
+    /* THANK YOU MESSAGE */
     #thankYouMessage {
       display: none;
-      background: #141414;
-      padding: 2rem;
-      max-width: 500px;
-      margin: 2rem auto;
-      border-radius: 12px;
-      color: #33ff99;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    #thankYouMessage p {
       font-size: 1.4rem;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,255,153,0.5);
+      margin-bottom: 1.5rem;
     }
-    .social {
-      margin-top: 1rem;
-    }
-    .social a {
-      color: #fff;
-      font-size: 1.2rem;
+    #thankYouMessage a {
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: color 0.3s ease;
+      color: #000;
+      font-weight: 600;
     }
-    .social a:hover {
-      color: #ff0066;
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 4rem;
+      font-size: 1.1rem;
+      color: #666;
+      border-top: 1px solid #eee;
+      margin-top: 4rem;
     }
   </style>
 </head>
 <body>
+  <!-- HERO -->
   <header>
-    <div class="icon">⚡</div>
-    <h1>KENYA AESTHETICS</h1>
-    <p>🔥 Custom Wallpapers – Only KES 100 🔥</p>
+    <!-- Minimal Premium Logo -->
+    <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" stroke="black" stroke-width="4"/>
+      <path d="M50 22 L68 50 L50 78 L32 50 Z" fill="black"/>
+    </svg>
+    <h1>Kenya Aesthetics</h1>
+    <p>Custom Premium Wallpapers – Only KES 100</p>
   </header>
 
+  <!-- SAMPLE WALLPAPERS -->
   <section class="samples">
-    <div>
-      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=500&q=80" alt="Neon Glow Sample" />
+    <div class="sample-card" style="animation-delay: 0.3s;">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80" alt="Neon Glow">
       <p>Neon Glow Name</p>
     </div>
-    <div>
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="Safari Sunset" />
+    <div class="sample-card" style="animation-delay: 0.5s;">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80" alt="Safari Sunset">
       <p>Safari Sunset</p>
     </div>
-    <div>
-      <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=500&q=80" alt="Nairobi Skyline" />
+    <div class="sample-card" style="animation-delay: 0.7s;">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80" alt="Nairobi Skyline">
       <p>Nairobi Skyline</p>
     </div>
   </section>
 
+  <!-- PAYMENT INFO -->
   <section class="payment">
-    <p><strong>Pay only KES 100 via M-Pesa to 0797507477</strong></p>
-    <p>After payment, fill the form below and we’ll WhatsApp or Email your custom wallpaper!</p>
+    <strong>Pay only KES 100 via M-Pesa to 0797507477</strong>
+    <p>After payment, fill out the form below – we’ll send your custom wallpaper to WhatsApp or Email.</p>
   </section>
 
+  <!-- ORDER FORM -->
   <form id="orderForm" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST" target="dummyframe" onsubmit="showThankYou(event)">
     <h2>Order Your Wallpaper</h2>
-    <input type="text" name="name" placeholder="Your Full Name" required />
+    <input type="text" name="name" placeholder="Your Full Name" required>
     <select name="style" required>
       <option value="">Select Style</option>
       <option>Neon Glow</option>
       <option>Safari Sunset</option>
       <option>Nairobi Skyline</option>
     </select>
-    <input type="text" name="contact" placeholder="Your WhatsApp Number & Email" required />
+    <input type="text" name="contact" placeholder="Your WhatsApp Number or Email" required>
+    <input type="number" name="quantity" placeholder="Number of Wallpapers" required>
     <textarea name="extra_info" placeholder="Any extra info (e.g. color, text style)"></textarea>
-    
+
     <!-- Hidden fields -->
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!" />
-    <input type="hidden" name="_template" value="box" />
-    
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!">
+    <input type="hidden" name="_template" value="box">
+
     <button type="submit">Confirm Order</button>
   </form>
 
+  <!-- THANK YOU PAGE -->
   <div id="thankYouMessage">
-    <p>✅ Thank you for your order! We’ll send your wallpaper soon via WhatsApp or Email.</p>
-    <p><a href="#" onclick="resetForm()" style="color:#ff6600;text-decoration:none;">⬅ Return to main site</a></p>
+    <p>✅ Thank you for your order! We’ll contact you shortly.</p>
+    <p><a href="#" onclick="resetForm()">Return to main site</a></p>
   </div>
 
-  <!-- Invisible iframe to handle form submission without page reload -->
+  <!-- Invisible iframe for smooth submission -->
   <iframe name="dummyframe" style="display:none;"></iframe>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="social">
-      <a href="https://instagram.com/kenya.aesthetics" target="_blank">
-        📸 Follow us on Instagram
-      </a>
-    </div>
-    <p>&copy; 2025 Kenya Aesthetics ⚡</p>
+    &copy; 2025 Kenya Aesthetics • Follow us on Instagram
   </footer>
 
   <script>
     function showThankYou(event) {
-      event.preventDefault(); 
+      event.preventDefault();
       const form = document.getElementById('orderForm');
       form.submit();
       form.style.display = 'none';
       document.getElementById('thankYouMessage').style.display = 'block';
     }
-
     function resetForm() {
       const form = document.getElementById('orderForm');
       form.reset();

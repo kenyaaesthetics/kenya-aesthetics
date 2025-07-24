@@ -4,164 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kenya Aesthetics | Custom Wallpapers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & base */
-    *, *::before, *::after {
+    /* Reset and base */
+    * {
       box-sizing: border-box;
     }
     body {
       margin: 0;
+      background: #0f111a;
       font-family: 'Poppins', sans-serif;
-      background: #0a0a0a;
-      color: #f1f1f1;
+      color: #fff;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      text-align: center;
     }
     a {
-      color: #06c;
+      color: #56ccf2;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     a:hover {
-      text-decoration: underline;
+      color: #2f80ed;
     }
-
-    /* Header */
     header {
-      background: linear-gradient(90deg, #3a9bdc, #00c6ff);
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
       padding: 2rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     .logo {
-      width: 48px;
-      height: 48px;
-      fill: #fff;
-      flex-shrink: 0;
-    }
-    header h1 {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 2.2rem;
-      letter-spacing: 3px;
-      color: #fff;
-      text-transform: uppercase;
-      margin: 0;
-    }
-
-    /* Hero tagline */
-    .tagline {
-      text-align: center;
-      margin: 1rem auto 3rem;
-      font-weight: 600;
-      font-size: 1.2rem;
-      max-width: 650px;
-      color: #a0d8ff;
-    }
-
-    /* Samples grid */
-    .samples {
-      max-width: 1000px;
-      margin: 0 auto 3rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      padding: 0 1rem;
-    }
-    .sample-card {
-      background: #111;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,198,255,0.3);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .sample-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,198,255,0.6);
-    }
-    .sample-card img {
-      width: 100%;
-      display: block;
-      border-bottom: 3px solid #00c6ff;
-    }
-    .sample-card p {
-      margin: 0.75rem;
-      font-weight: 700;
-      text-align: center;
-      font-size: 1.1rem;
-      color: #00c6ff;
+      letter-spacing: 4px;
+      color: #56ccf2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       user-select: none;
     }
-
-    /* Why choose us */
-    .why-choose-us {
-      max-width: 900px;
-      margin: 3rem auto 4rem;
-      padding: 0 1rem;
-      text-align: center;
+    .logo svg {
+      width: 32px;
+      height: 32px;
+      fill: #56ccf2;
     }
-    .why-choose-us h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #00c6ff;
-      margin-bottom: 1rem;
-    }
-    .why-choose-us p {
+    header p {
+      margin: 0.5rem 0 0;
+      font-weight: 600;
+      color: #aaccee;
       font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: #b0e1ff;
+      letter-spacing: 1px;
     }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
+    main {
+      max-width: 1000px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
     }
-    .feature {
-      background: #111;
-      border-radius: 15px;
-      padding: 1.5rem 2rem;
-      flex: 1 1 220px;
-      box-shadow: 0 8px 20px rgba(0,198,255,0.25);
-      transition: background 0.3s ease;
+    .samples {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
-    .feature:hover {
-      background: #00c6ff;
-      color: #000;
-      box-shadow: 0 12px 30px rgba(0,198,255,0.6);
+    .samples div {
+      background: #1a1f3a;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
-    .feature h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.4rem;
+    .samples div:hover {
+      transform: scale(1.05);
     }
-    .feature p {
-      margin: 0;
-      font-size: 1rem;
-      line-height: 1.4;
+    .samples img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 320px;
+      user-select: none;
     }
-
-    /* Order form */
+    .samples p {
+      margin: 0.75rem 0 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #56ccf2;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .payment {
+      background: #1f2640;
+      color: #88bbff;
+      padding: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      border-radius: 10px;
+      margin-bottom: 3rem;
+      user-select: none;
+    }
+    .payment strong {
+      color: #56ccf2;
+      font-size: 1.6rem;
+    }
     form {
-      background: #111;
-      max-width: 500px;
-      margin: 0 auto 3rem;
-      border-radius: 15px;
+      background: #1b1f33;
       padding: 2.5rem 2rem;
-      box-shadow: 0 8px 30px rgba(0,198,255,0.4);
+      max-width: 520px;
+      margin: 0 auto;
+      border-radius: 14px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.7);
+      text-align: left;
+      color: #ccd6f6;
     }
     form h2 {
       text-align: center;
-      color: #00c6ff;
-      font-size: 2rem;
+      color: #56ccf2;
       margin-bottom: 1.5rem;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.5px;
+      font-size: 2rem;
+      user-select: none;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      user-select: none;
     }
     input[type="text"],
     input[type="number"],
@@ -169,20 +141,22 @@
     textarea {
       width: 100%;
       padding: 0.8rem 1rem;
-      margin-bottom: 1rem;
-      border-radius: 12px;
-      border: 1.5px solid #00c6ff;
-      background: #0a0a0a;
-      color: #fff;
+      margin-bottom: 1.3rem;
+      border-radius: 8px;
+      border: none;
       font-size: 1rem;
-      transition: border-color 0.3s ease;
+      background: #121526;
+      color: #d1d9ff;
+      transition: background 0.3s ease;
+      font-family: 'Poppins', sans-serif;
     }
     input[type="text"]:focus,
     input[type="number"]:focus,
     select:focus,
     textarea:focus {
-      border-color: #00ffff;
       outline: none;
+      background: #25345f;
+      color: #eef4ff;
     }
     textarea {
       resize: vertical;
@@ -190,182 +164,210 @@
     }
     button {
       width: 100%;
-      background: linear-gradient(45deg, #00c6ff, #005f99);
+      background: linear-gradient(90deg, #56ccf2, #2f80ed);
       border: none;
-      padding: 1rem;
-      color: #fff;
+      padding: 1.2rem;
       font-size: 1.3rem;
+      color: white;
       font-weight: 700;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       transition: background 0.3s ease;
-      letter-spacing: 1.1px;
+      user-select: none;
+      letter-spacing: 1.5px;
     }
     button:hover {
-      background: linear-gradient(45deg, #005f99, #00c6ff);
+      background: linear-gradient(90deg, #2f80ed, #56ccf2);
     }
-
-    /* Thank you message */
     #thankYouMessage {
       display: none;
-      max-width: 500px;
-      margin: 2rem auto 3rem;
-      background: #001f3f;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0,198,255,0.6);
-      color: #b0f2ff;
-      font-weight: 700;
-      font-size: 1.3rem;
-      text-align: center;
+      max-width: 520px;
+      margin: 3rem auto;
+      background: #152040;
+      padding: 2.5rem 2rem;
+      border-radius: 14px;
+      color: #9ae6ff;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 25px rgba(0, 140, 255, 0.8);
+      line-height: 1.5;
+      user-select: none;
+      text-align: left;
+    }
+    #thankYouMessage p {
+      margin-bottom: 1rem;
     }
     #thankYouMessage a {
-      margin-top: 1rem;
       display: inline-block;
-      background: #00c6ff;
-      padding: 0.7rem 1.5rem;
-      border-radius: 12px;
-      color: #000;
+      margin-top: 1.5rem;
       font-weight: 700;
-      text-transform: uppercase;
-      transition: background 0.3s ease;
+      font-size: 1.1rem;
+      color: #56ccf2;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom 0.3s ease;
     }
     #thankYouMessage a:hover {
-      background: #005f99;
-      color: #fff;
+      border-bottom: 2px solid #56ccf2;
     }
-
-    /* Footer */
     footer {
-      background: #000;
-      padding: 1rem 0;
       text-align: center;
+      padding: 1rem 1rem 3rem;
       font-size: 0.9rem;
-      color: #444;
+      color: #7f8fb5;
+      user-select: none;
+      border-top: 1px solid #222c4b;
+    }
+    .why-us {
+      max-width: 800px;
+      margin: 3rem auto 5rem;
+      text-align: center;
+      color: #bccdee;
+      padding: 0 1rem;
       user-select: none;
     }
-
-    @media (max-width: 600px) {
-      .features {
-        flex-direction: column;
-      }
+    .why-us h2 {
+      color: #56ccf2;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+    .why-us p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body>
-  <header>
-    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-label="Kenya Aesthetics logo">
-      <circle cx="32" cy="32" r="30" stroke="#00c6ff" stroke-width="3" fill="none" />
-      <path d="M20 40 L32 20 L44 40 Z" fill="#00c6ff"/>
-      <circle cx="32" cy="40" r="5" fill="#00aaff" />
+
+<header>
+  <div class="logo" aria-label="Kenya Aesthetics logo">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <circle cx="32" cy="32" r="30" stroke="#56ccf2" stroke-width="3" fill="none"/>
+      <path d="M20 44 L32 20 L44 44 Z" fill="#56ccf2"/>
     </svg>
-    <h1>KENYA AESTHETICS</h1>
-  </header>
+    KENYA AESTHETICS
+  </div>
+  <p>Custom Wallpapers Designed Just for You – Only KES 100 Each</p>
+</header>
 
-  <p class="tagline">Custom wallpapers designed to brighten your phone and your day — all for just KES 100 each.</p>
-
-  <section class="samples" aria-label="Sample wallpapers">
-    <div class="sample-card">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Neon Glow style wallpaper - vibrant neon pink and purple lights" />
+<main>
+  <section class="samples" aria-label="Sample wallpapers gallery">
+    <div>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Neon Glow Wallpaper Sample" />
       <p>Neon Glow</p>
     </div>
-    <div class="sample-card">
-      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80" alt="Safari Sunset style wallpaper with warm orange and red hues" />
+    <div>
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400&q=80" alt="Safari Sunset Wallpaper Sample" />
       <p>Safari Sunset</p>
     </div>
-    <div class="sample-card">
-      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=400&q=80" alt="Nairobi Skyline style wallpaper showing city skyline at dusk" />
+    <div>
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=400&q=80" alt="Nairobi Skyline Wallpaper Sample" />
       <p>Nairobi Skyline</p>
     </div>
-    <div class="sample-card">
-      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Abstract Waves style wallpaper in cool blue tones" />
-      <p>Abstract Waves</p>
+    <div>
+      <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=400&q=80" alt="Digital Waves Wallpaper Sample" />
+      <p>Digital Waves</p>
     </div>
-    <div class="sample-card">
-      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400&q=80" alt="Modern Minimal style wallpaper with simple geometric shapes" />
-      <p>Modern Minimal</p>
-    </div>
-  </section>
-
-  <section class="why-choose-us" aria-label="Why choose Kenya Aesthetics">
-    <h2>Why Choose Kenya Aesthetics?</h2>
-    <p>We create stunning, custom-made wallpapers tailored to your style and preferences — all at an unbeatable price. Here's why thousands trust us:</p>
-    <div class="features">
-      <div class="feature" tabindex="0">
-        <h3>Affordable Pricing</h3>
-        <p>Get premium quality wallpapers for only KES 100 each, without compromising style or originality.</p>
-      </div>
-      <div class="feature" tabindex="0">
-        <h3>Unique Designs</h3>
-        <p>Each wallpaper is crafted to suit your personal vibe — no generic images, only custom art.</p>
-      </div>
-      <div class="feature" tabindex="0">
-        <h3>Fast Delivery</h3>
-        <p>Your order is sent via WhatsApp or Email quickly after payment and form submission.</p>
-      </div>
-      <div class="feature" tabindex="0">
-        <h3>Easy Payment</h3>
-        <p>Pay conveniently using M-Pesa, the most trusted mobile payment system in Kenya.</p>
-      </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Aurora Lights Wallpaper Sample" />
+      <p>Aurora Lights</p>
     </div>
   </section>
 
-  <form id="orderForm" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST" target="dummyframe" onsubmit="return validateAndSubmit(event)" aria-label="Order form">
+  <section class="payment" aria-label="Payment instructions">
+    <p><strong>Pay only KES 100 via M-Pesa to <span aria-label="Phone number for payment">0797507477</span></strong></p>
+    <p>After payment, fill the form below. We will WhatsApp or email your custom wallpaper soon.</p>
+  </section>
+
+  <form id="orderForm" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST" target="dummyframe" onsubmit="return handleSubmit(event)" aria-label="Order form for custom wallpapers">
     <h2>Order Your Custom Wallpaper</h2>
-    <input type="text" name="name" placeholder="Your Full Name" required aria-required="true" />
-    <select name="style" required aria-required="true" aria-label="Select wallpaper style">
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Your Full Name" required autocomplete="name" />
+
+    <label for="style">Select Style</label>
+    <select id="style" name="style" required>
       <option value="" disabled selected>Select Style</option>
-      <option value="Neon Glow">Neon Glow</option>
-      <option value="Safari Sunset">Safari Sunset</option>
-      <option value="Nairobi Skyline">Nairobi Skyline</option>
-      <option value="Abstract Waves">Abstract Waves</option>
-      <option value="Modern Minimal">Modern Minimal</option>
+      <option>Neon Glow</option>
+      <option>Safari Sunset</option>
+      <option>Nairobi Skyline</option>
+      <option>Digital Waves</option>
+      <option>Aurora Lights</option>
     </select>
-    <input type="number" name="quantity" placeholder="Number of Wallpapers" min="1" required aria-required="true" />
-    <input type="text" name="contact" placeholder="Your Email or WhatsApp Number" required aria-required="true" />
-    <textarea name="extra_info" placeholder="Additional info (e.g. color, text style)" aria-label="Additional information"></textarea>
+
+    <label for="quantity">Number of Wallpapers</label>
+    <input type="number" id="quantity" name="quantity" placeholder="How many wallpapers?" min="1" value="1" required />
+
+    <label for="contact">Phone Number & Email</label>
+    <input type="text" id="contact" name="contact" placeholder="Enter both phone number and email" required autocomplete="off" />
+
+    <label for="extra_info">Extra Info (e.g. colors, text style)</label>
+    <textarea id="extra_info" name="extra_info" placeholder="Any extra info to customize your wallpaper"></textarea>
 
     <!-- Hidden fields -->
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!" />
     <input type="hidden" name="_template" value="box" />
 
-    <button type="submit">Submit Order — KES 100 each</button>
+    <button type="submit">Confirm Order - KES 100 each</button>
   </form>
 
   <div id="thankYouMessage" role="alert" aria-live="polite">
-    <p>Thank you for your order! We will get in touch via WhatsApp or Email soon.</p>
-    <p><a href="#" onclick="resetForm()">Return to main site</a></p>
+    <p>Thank you for your order! We appreciate you choosing Kenya Aesthetics for your custom wallpaper needs. Your order has been successfully received, and our design team is excited to start crafting your personalized wallpaper.</p>
+    <p><strong>What happens next?</strong></p>
+    <ul>
+      <li>We carefully review your order details to ensure perfection.</li>
+      <li>Expect a message from us on WhatsApp or Email within 24 hours with a preview of your wallpaper.</li>
+      <li>If you have any extra requests or changes, simply reply to that message.</li>
+      <li>Once approved, we will send you the final high-quality wallpaper file ready to brighten up your device!</li>
+    </ul>
+    <p><strong>Need help or have questions?</strong> Reach out anytime via our contact info. Your satisfaction is our top priority.</p>
+    <p>Thank you for supporting Kenya Aesthetics — where art meets your screen.</p>
+    <a href="#orderForm">Place Another Order</a>
   </div>
 
-  <iframe name="dummyframe" style="display:none;"></iframe>
+  <section class="why-us" aria-label="Reasons to buy from Kenya Aesthetics">
+    <h2>Why Choose Kenya Aesthetics?</h2>
+    <p>We combine local inspiration with sleek, modern design to deliver wallpapers that truly stand out. Each wallpaper is custom-made just for you at an unbeatable price. Whether you want a neon glow vibe, serene safari sunset, or digital waves, we bring your vision to life with quality and style. Join our growing community of happy customers who love their personalized wallpapers!</p>
+  </section>
+</main>
 
-  <footer>
-    <p>© 2025 Kenya Aesthetics — Follow us on Instagram</p>
-  </footer>
+<footer>
+  <p>Follow us on Instagram</p>
+  <p>© 2025 Kenya Aesthetics | Designed with care</p>
+</footer>
 
-  <script>
-    function validateAndSubmit(event) {
-      event.preventDefault();
-      const form = document.getElementById('orderForm');
-      const qty = form.quantity.value.trim();
-      if (!qty || isNaN(qty) || Number(qty) < 1) {
-        alert('Please enter a valid number of wallpapers (at least 1).');
-        form.quantity.focus();
-        return false;
-      }
-      form.submit();
-      form.style.display = 'none';
-      document.getElementById('thankYouMessage').style.display = 'block';
+<!-- Dummy iframe for formsubmit -->
+<iframe name="dummyframe" style="display:none;"></iframe>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const quantity = Number(form.quantity.value);
+
+    if (quantity < 1 || isNaN(quantity)) {
+      alert("Please enter a valid number of wallpapers (at least 1).");
+      form.quantity.focus();
       return false;
     }
 
-    function resetForm() {
-      const form = document.getElementById('orderForm');
-      form.reset();
-      form.style.display = 'block';
-      document.getElementById('thankYouMessage').style.display = 'none';
-    }
-  </script>
+    // Submit the form manually
+    form.submit();
+
+    // Show thank you message and hide form
+    document.getElementById('thankYouMessage').style.display = 'block';
+    form.style.display = 'none';
+
+    // Scroll to thank you message smoothly
+    document.getElementById('thankYouMessage').scrollIntoView({behavior: 'smooth'});
+
+    return false; // Prevent default to avoid duplicate submission
+  }
+</script>
+
 </body>
 </html>

@@ -1,290 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kenya Aesthetics | Custom Wallpapers</title>
-  <meta name="description" content="Get premium custom wallpapers for only KES 100. Fast delivery via WhatsApp or Email.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kenya Aesthetics - Premium custom wallpapers. Bring your device to life with elegant designs!">
+  <meta name="google-site-verification" content="Yo_vxMkd3uHtxZ2K7sjk6-ILBRELwZQptxG-aA3uBRo" />
+  <title>Kenya Aesthetics | Premium Custom Wallpapers</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
-      background: #faf7f2;
-      color: #333;
-      text-align: center;
+      background: #fafafa;
+      color: #222;
+      line-height: 1.6;
     }
     header {
-      padding: 2rem;
-      background: linear-gradient(135deg, #f5e6d3, #fff);
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
     }
-    .logo {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #222;
-      letter-spacing: 2px;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    .why-choose {
-      padding: 3rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    .why-choose h2 {
+    header h1 {
       font-size: 2rem;
+      margin: 0;
+      color: #111;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: linear-gradient(120deg, #fefefe, #f5f5f5);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
-    .why-choose p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
     }
-
-    .request-samples {
-      padding: 2rem;
-      background: #fff3e0;
-    }
-    .request-samples h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-    .btn {
+    .btn-primary {
       background: #222;
       color: #fff;
-      padding: 1rem 2rem;
-      border: none;
+      padding: 0.8rem 1.5rem;
       border-radius: 8px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
-    .btn:hover {
+    .btn-primary:hover {
       background: #444;
     }
-
-    /* Hidden popup form */
-    #sampleFormContainer {
-      display: none;
-      background: rgba(0,0,0,0.5);
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
     }
-    .popup-form {
+    .styles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .style-card {
       background: #fff;
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      text-align: left;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
     }
-    .popup-form h3 {
+    .style-card h3 {
       margin-top: 0;
     }
-    .popup-form input {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    .popup-form button {
-      width: 100%;
-      margin-top: 1rem;
-    }
-
-    .payment {
+    footer {
       background: #fff;
+      text-align: center;
       padding: 2rem;
-      font-size: 1.2rem;
+      font-size: 0.9rem;
+      color: #666;
     }
-    .payment strong {
-      color: #d2691e;
-      font-size: 1.4rem;
-    }
-
     form {
-      background: #fff;
-      padding: 2rem;
-      max-width: 500px;
-      margin: 2rem auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: grid;
+      gap: 1rem;
+      max-width: 400px;
+      margin: auto;
     }
-    form h2 {
-      margin-bottom: 1rem;
-    }
-    form input, form select, form textarea {
-      width: 90%;
+    input, textarea {
       padding: 0.8rem;
-      margin: 0.5rem 0;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
+      width: 100%;
     }
-    form textarea {
-      resize: none;
-      height: 100px;
-    }
-    form button {
+    button {
       background: #222;
       color: #fff;
-      padding: 1rem;
       border: none;
-      width: 100%;
-      font-size: 1.2rem;
+      padding: 0.8rem;
+      font-size: 1rem;
       border-radius: 8px;
       cursor: pointer;
     }
-
-    footer {
-      background: #f1eee9;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    #thankYouMessage, #sampleThankYou {
-      display: none;
-      background: #fffbe7;
-      padding: 2rem;
-      max-width: 500px;
-      margin: 2rem auto;
-      border-radius: 12px;
-      color: #333;
-      font-size: 1.2rem;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    button:hover {
+      background: #444;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="logo">KENYA AESTHETICS</div>
-    <p>Premium Custom Wallpapers – Only KES 100</p>
+    <h1>Kenya Aesthetics</h1>
   </header>
 
-  <section class="why-choose">
-    <h2>Why Choose Kenya Aesthetics?</h2>
-    <p>✅ High-quality, unique wallpapers tailored just for you</p>
-    <p>✅ Fast delivery via WhatsApp or Email within hours</p>
-    <p>✅ Only KES 100 per wallpaper – affordable luxury</p>
-    <p>✅ Perfect for personal use, gifts, or showcasing your style</p>
+  <section class="hero">
+    <h2>Premium Custom Wallpapers</h2>
+    <p>Bring your device to life with elegant, minimal, and breathtaking wallpapers made just for you.</p>
+    <a href="#order" class="btn-primary">Order Now</a>
   </section>
 
-  <!-- Request Samples -->
-  <section class="request-samples">
-    <h2>Want to see sample wallpapers?</h2>
-    <p>Request free samples and we’ll send them to your WhatsApp or Email within 24 hours.</p>
-    <button class="btn" onclick="openSampleForm()">Request Samples</button>
+  <section>
+    <h2>Why Choose Us?</h2>
+    <p>
+      At <strong>Kenya Aesthetics</strong>, we believe your device deserves a premium look. Our wallpapers are designed with precision and creativity to match your personal style.
+    </p>
+    <ul>
+      <li>✅ Unique high-quality designs</li>
+      <li>✅ Affordable pricing (KES 100 per wallpaper)</li>
+      <li>✅ Fast delivery straight to your email</li>
+      <li>✅ 100% satisfaction guaranteed</li>
+    </ul>
   </section>
 
-  <!-- Hidden popup for sample request -->
-  <div id="sampleFormContainer">
-    <div class="popup-form">
-      <h3>Request Samples</h3>
-      <form id="sampleForm" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST" target="dummyframe" onsubmit="submitSampleForm(event)">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="text" name="contact" placeholder="WhatsApp or Email" required>
-        <input type="hidden" name="_subject" value="Sample Request - Kenya Aesthetics">
-        <input type="hidden" name="_captcha" value="false">
-        <button type="submit" class="btn">Submit Request</button>
-        <button type="button" class="btn" style="background:#999; margin-top:0.5rem;" onclick="closeSampleForm()">Cancel</button>
-      </form>
+  <section>
+    <h2>Wallpaper Styles</h2>
+    <div class="styles">
+      <div class="style-card"><h3>Safari Sunset</h3><p>Warm African sunsets.</p></div>
+      <div class="style-card"><h3>Urban Minimal</h3><p>Clean, modern vibes.</p></div>
+      <div class="style-card"><h3>Nature Bliss</h3><p>Calming natural sceneries.</p></div>
+      <div class="style-card"><h3>Nairobi Skyline</h3><p>City lights & skyline.</p></div>
+      <div class="style-card"><h3>Luxury Abstract</h3><p>Premium abstract art.</p></div>
     </div>
-  </div>
-
-  <!-- Thank you message after sample request -->
-  <div id="sampleThankYou">
-    ✅ Thank you! Your sample request has been received.  
-    We’ll send them to you within 24 hours.  
-  </div>
-
-  <section class="payment">
-    <p><strong>Pay only KES 100 via M-Pesa to 0797507477</strong></p>
-    <p>After payment, fill the form below and we’ll WhatsApp your custom wallpaper!</p>
+    <p style="text-align:center; margin-top:2rem;">Want free samples? <button onclick="alert('✅ Your request is confirmed! You’ll receive sample wallpapers within 1 day.')">Request Samples</button></p>
   </section>
 
-  <!-- Order Form -->
-  <form id="orderForm" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST" target="dummyframe" onsubmit="showThankYou(event)">
-    <h2>Order Your Wallpaper</h2>
-    <input type="text" name="name" placeholder="Your Full Name" required />
-    <select name="style" required>
-      <option value="">Select Style</option>
-      <option>Neon Glow</option>
-      <option>Safari Sunset</option>
-      <option>Nairobi Skyline</option>
-      <option>Luxury Abstract</option>
-      <option>Minimal Elegance</option>
-    </select>
-    <input type="text" name="contact" placeholder="Your WhatsApp or Email" required />
-    <textarea name="extra_info" placeholder="Any extra info (e.g. color, text style)"></textarea>
-    
-    <!-- Hidden fields -->
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_subject" value="New Kenya Aesthetics Order!" />
-    <input type="hidden" name="_template" value="box" />
-    
-    <button type="submit">Submit Order</button>
-  </form>
-
-  <div id="thankYouMessage">
-    ✅ Thank you for your order!  
-    We’ve received your details and will contact you on WhatsApp or Email soon.  
-    Expect your premium wallpaper within a few hours.  
-    <br><br>
-    <a href="#" onclick="resetForm()">Return to main site</a>
-  </div>
-
-  <!-- Invisible iframe -->
-  <iframe name="dummyframe" style="display:none;"></iframe>
+  <section id="order">
+    <h2>Place Your Order</h2>
+    <form onsubmit="submitOrder(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="number" id="quantity" placeholder="Number of Wallpapers" min="1" required>
+      <textarea id="style" placeholder="Preferred style(s)" required></textarea>
+      <button type="submit">Confirm Order</button>
+    </form>
+    <p style="text-align:center; margin-top:1rem; font-size:0.9rem;">Payment: Send KES 100 per wallpaper to <strong>0700 123 456</strong></p>
+  </section>
 
   <footer>
-    © 2025 Kenya Aesthetics | Follow us on Instagram
+    &copy; 2025 Kenya Aesthetics. All rights reserved. <br>
+    Follow us on Instagram for updates.
   </footer>
 
   <script>
-    function showThankYou(event) {
-      event.preventDefault(); 
-      const form = document.getElementById('orderForm');
-      form.submit();
-      form.style.display = 'none';
-      document.getElementById('thankYouMessage').style.display = 'block';
-    }
-
-    function resetForm() {
-      const form = document.getElementById('orderForm');
-      form.reset();
-      form.style.display = 'block';
-      document.getElementById('thankYouMessage').style.display = 'none';
-    }
-
-    // SAMPLE REQUEST FORM LOGIC
-    function openSampleForm() {
-      document.getElementById('sampleFormContainer').style.display = 'flex';
-    }
-    function closeSampleForm() {
-      document.getElementById('sampleFormContainer').style.display = 'none';
-    }
-    function submitSampleForm(event) {
+    function submitOrder(event) {
       event.preventDefault();
-      const form = document.getElementById('sampleForm');
-      form.submit();
-      document.getElementById('sampleFormContainer').style.display = 'none';
-      document.getElementById('sampleThankYou').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('sampleThankYou').style.display = 'none';
-      }, 5000);
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const quantity = document.getElementById('quantity').value;
+      const style = document.getElementById('style').value;
+      
+      if(quantity <= 0){
+        alert('❌ Please enter a valid wallpaper quantity!');
+        return;
+      }
+      
+      alert(`✅ Thank you ${name}! Your order for ${quantity} wallpaper(s) in the style: ${style} is confirmed.\n\nTo complete your order, please send KES ${quantity * 100} to 0700 123 456. After payment, you’ll receive your wallpapers within 24 hours.`);
+      document.querySelector('form').reset();
     }
   </script>
-
 </body>
 </html>

@@ -1,86 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kenya Aesthetics | Premium Custom Wallpapers</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Kenya Aesthetics offers premium custom wallpapers tailored to your style. Get aesthetic digital wallpapers delivered fast!">
-  <meta name="keywords" content="Kenya Aesthetics, custom wallpapers, digital art Kenya, aesthetic wallpapers, Nairobi wallpapers">
-  <meta name="author" content="Kenya Aesthetics">
-
-  <!-- Google Site Verification -->
-  <meta name="google-site-verification" content="Yo_vxMkd3uHtxZ2K7sjk6-ILBRELwZQptxG-aA3uBRo" />
-
-  <!-- Open Graph for Social Media -->
-  <meta property="og:title" content="Kenya Aesthetics | Premium Custom Wallpapers" />
-  <meta property="og:description" content="Premium custom wallpapers tailored to your style. Order now and elevate your screens!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kenyaaesthetics.github.io/kenya-aesthetics/" />
-  <meta property="og:image" content="https://your-wallpaper-image-link.jpg" />
-
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kenya Aesthetics - Premium Custom Wallpapers for only KES 100. Tailored to your style and delivered in 24 hours.">
+  <meta property="og:title" content="Kenya Aesthetics | Premium Wallpapers">
+  <meta property="og:description" content="Premium custom wallpapers designed just for you. Only KES 100 with 24-hour delivery!">
+  <meta property="og:url" content="https://kenyaaesthetics.github.io/kenya-aesthetics/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://kenyaaesthetics.github.io/kenya-aesthetics/preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kenya Aesthetics | Premium Wallpapers">
+  <meta name="twitter:description" content="Premium custom wallpapers designed just for you. Only KES 100 with 24-hour delivery!">
+  <meta name="twitter:image" content="https://kenyaaesthetics.github.io/kenya-aesthetics/preview.jpg">
+  <title>Kenya Aesthetics | Premium Wallpapers</title>
+  <link rel="icon" href="https://kenyaaesthetics.github.io/kenya-aesthetics/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: relative;
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: linear-gradient(135deg, #000, #222);
+      color: #fff;
+      animation: fadeIn 1.2s ease-in-out forwards;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.85;
+      margin-top: 10px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    nav a {
+      color: #111;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #555;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    section {
+      background: #f9f9f9;
+      padding: 50px;
+      margin-bottom: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+    }
+    section:nth-child(1){animation-delay:0.2s}
+    section:nth-child(2){animation-delay:0.4s}
+    section:nth-child(3){animation-delay:0.6s}
+    section:nth-child(4){animation-delay:0.8s}
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #000;
+    }
+    ul {
+      list-style: none;
+    }
+    ul li::before {
+      content: "✔";
+      color: #0abf53;
+      margin-right: 10px;
+    }
+    .steps div {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 0.9rem;
+      color: #777;
+      background: #fafafa;
+    }
+    .share-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+    }
+    .share-buttons a {
+      background: #000;
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .share-buttons a:hover {
+      background: #333;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      background: #000;
+      color: #fff;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: none;
+      cursor: pointer;
+      font-size: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(20px)}
+      to {opacity:1; transform:translateY(0)}
+    }
+    @keyframes fadeUp {
+      0% {opacity:0; transform:translateY(40px)}
+      100% {opacity:1; transform:translateY(0)}
+    }
+    @media(max-width:768px){
+      header h1 {font-size:2.2rem}
+      h2 {font-size:1.6rem}
+      section {padding:30px}
+    }
+  </style>
 </head>
 <body>
+  <nav>
+    <a href="#why">Why Us</a>
+    <a href="#how">How It Works</a>
+    <a href="#samples">Samples</a>
+    <a href="#order">Order</a>
+  </nav>
   <header>
     <h1>Kenya Aesthetics</h1>
-    <p>Premium Custom Wallpapers – Designed for You</p>
+    <p>Premium Custom Wallpapers – Designed Just for You</p>
+    <a href="#order" class="btn">Order Now for KES 100</a>
   </header>
-
-  <section>
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>✔️ Premium High-Resolution Wallpapers</li>
-      <li>✔️ Tailored to your style & personality</li>
-      <li>✔️ Affordable and fast delivery</li>
-      <li>✔️ Trusted by customers across Kenya</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>How It Works</h2>
-    <p>1️⃣ Choose your preferred wallpaper style<br>
-       2️⃣ Place your order<br>
-       3️⃣ Receive your custom wallpaper within 24 hours</p>
-  </section>
-
-  <section>
-    <h2>Want Free Samples?</h2>
-    <button onclick="alert('✅ Confirmed! You will receive free samples within 1 day.')">Request Samples</button>
-  </section>
-
-  <section>
-    <h2>Order Now</h2>
-    <form id="orderForm">
-      <label>Name:</label><br>
-      <input type="text" required><br><br>
-
-      <label>Email:</label><br>
-      <input type="email" required><br><br>
-
-      <label>Number of Wallpapers:</label><br>
-      <input type="number" min="1" required><br><br>
-
-      <button type="submit">Place Order</button>
-    </form>
-    <p id="confirmationMessage" style="display:none; font-weight:bold; margin-top:10px;">
-      ✅ Thank you for your order!<br>
-      Please send your payment via M-Pesa to <strong>+2547XXXXXXXX</strong>.<br>
-      We’ll confirm your order and deliver within 24 hours.<br><br>
-      Follow us on Instagram for updates!
-    </p>
-  </section>
-
+  <div class="container">
+    <section id="why">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li>Premium High-Resolution Wallpapers</li>
+        <li>Tailored to your style & personality</li>
+        <li>Affordable with fast 24hr delivery</li>
+        <li>Trusted by customers across Kenya</li>
+      </ul>
+    </section>
+    <section id="how">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div>1️⃣ Choose your preferred wallpaper style</div>
+        <div>2️⃣ Place your order</div>
+        <div>3️⃣ Receive your custom wallpaper within 24 hours</div>
+      </div>
+    </section>
+    <section id="samples">
+      <h2>Want Free Samples?</h2>
+      <p>Not sure yet? Request free sample wallpapers to see the quality before you buy.</p>
+      <a href="#order" class="btn">Request Samples</a>
+    </section>
+    <section id="order">
+      <h2>Order Now</h2>
+      <form action="https://formspree.io/f/your_form_id" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Describe your wallpaper style" rows="4" required></textarea>
+        <button class="btn" type="submit">Place Order</button>
+      </form>
+      <p style="margin-top:10px; font-size:0.9rem; color:#555;">After ordering, you'll get M-Pesa payment details instantly.</p>
+    </section>
+  </div>
   <footer>
-    <p>&copy; 2025 Kenya Aesthetics. All Rights Reserved.</p>
+    &copy; 2025 Kenya Aesthetics. All rights reserved.
   </footer>
-
+  <div class="share-buttons">
+    <a href="https://wa.me/?text=Check%20out%20Kenya%20Aesthetics%20Premium%20Wallpapers!%20https://kenyaaesthetics.github.io/kenya-aesthetics/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Check%20out%20Kenya%20Aesthetics%20Premium%20Wallpapers!%20https://kenyaaesthetics.github.io/kenya-aesthetics/" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+  </div>
+  <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
   <script>
-    document.getElementById("orderForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      document.getElementById("confirmationMessage").style.display = "block";
+    function copyLink(){
+      navigator.clipboard.writeText('https://kenyaaesthetics.github.io/kenya-aesthetics/');
+      alert('Link copied to clipboard!');
+    }
+    window.addEventListener('scroll',()=>{
+      const btn=document.getElementById('scrollTopBtn');
+      if(window.scrollY>300){btn.style.display='flex';}else{btn.style.display='none';}
     });
+    function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
   </script>
 </body>
 </html>

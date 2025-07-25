@@ -8,154 +8,61 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Fixed Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-NN5Zm3EBoYHwMZz1+pzzsV4HlB7FZpZVY/5s7Yl7GEhKfrb0DhZBDOmAiL6fchTxz1zQvPMSnKwLXl+G1P9ZPg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background: #f9f9f9; color: #222; line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      background: #f9f9f9;
-      color: #222;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    header { background: linear-gradient(135deg, #000, #333); color: #fff; text-align: center; padding: 80px 20px; animation: fadeSlide 1s ease forwards; }
+    header h1 { font-size: 2.8rem; font-weight: 600; letter-spacing: -1px; }
+    header p { font-size: 1.2rem; margin-top: 10px; opacity: 0.85; }
 
-    header {
-      background: linear-gradient(135deg, #000, #333);
-      color: #fff;
-      text-align: center;
-      padding: 80px 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlide 1s ease forwards;
-    }
+    .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+    section { background: #fff; padding: 40px; margin-bottom: 30px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); animation: fadeSlide 1s ease forwards; }
+    h2 { font-size: 1.8rem; margin-bottom: 20px; color: #111; }
+    ul { list-style: none; }
+    ul li::before { content: "✔"; color: #0abf53; margin-right: 10px; }
+    .steps { display: flex; flex-direction: column; gap: 10px; }
+    .steps div { background: #f1f1f1; padding: 12px 16px; border-radius: 10px; }
 
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 600;
-      letter-spacing: -1px;
-    }
+    .btn { display: inline-block; background: #000; color: #fff; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 500; margin-top: 15px; transition: background 0.3s ease; cursor: pointer; }
+    .btn:hover { background: #333; }
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      opacity: 0.85;
-    }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; }
 
-    .container {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
+    footer { text-align: center; padding: 40px; font-size: 0.9rem; color: #777; animation: fadeSlide 1s ease forwards; }
 
-    section {
-      background: #fff;
-      padding: 40px;
-      margin-bottom: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeSlide 1s ease forwards;
-    }
+    @keyframes fadeSlide { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
 
-    section:nth-child(1) { animation-delay: 0.2s; }
-    section:nth-child(2) { animation-delay: 0.4s; }
-    section:nth-child(3) { animation-delay: 0.6s; }
-    section:nth-child(4) { animation-delay: 0.8s; }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #111;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    ul li::before {
-      content: "✔";
-      color: #0abf53;
-      margin-right: 10px;
-    }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .steps div {
-      background: #f1f1f1;
-      padding: 12px 16px;
-      border-radius: 10px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #000;
-      color: #fff;
-      padding: 12px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 500;
-      margin-top: 15px;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #333;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      font-size: 0.9rem;
-      color: #777;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlide 1s ease forwards;
-      animation-delay: 1s;
-    }
-
-    /* Fade + Slide Animation */
-    @keyframes fadeSlide {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Floating Share Buttons */
-    .share-buttons {
+    /* Floating Share Button */
+    .share-menu {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
       z-index: 1000;
     }
-
-    .share-buttons a {
+    .share-main {
+      background: #000;
+      color: #fff;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .share-options {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .share-options a {
       background: #000;
       color: #fff;
       width: 45px;
@@ -168,10 +75,7 @@
       font-size: 20px;
       transition: background 0.3s ease;
     }
-
-    .share-buttons a:hover {
-      background: #333;
-    }
+    .share-options a:hover { background: #333; }
   </style>
 </head>
 <body>
@@ -205,14 +109,14 @@
     <section>
       <h2>Want Free Samples?</h2>
       <p>Not sure yet? Request free sample wallpapers to see the quality before you buy.</p>
-      <a href="#samples" class="btn">Request Samples</a>
+      <button class="btn" onclick="showSampleMessage()">Request Samples</button>
     </section>
 
     <section id="order">
       <h2>Order Now</h2>
-      <form>
+      <form onsubmit="submitOrder(event)">
         <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Your Email or Phone" required>
         <textarea placeholder="Describe your wallpaper style" rows="4"></textarea>
         <button class="btn" type="submit">Place Order</button>
       </form>
@@ -225,18 +129,39 @@
     &copy; 2025 Kenya Aesthetics. All rights reserved.
   </footer>
 
-  <!-- Floating Share Buttons -->
-  <div class="share-buttons">
-    <a href="https://wa.me/?text=Check%20out%20Kenya%20Aesthetics%20Premium%20Wallpapers!%20https://kenyaaesthetics.github.io/kenya-aesthetics/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://twitter.com/intent/tweet?text=Check%20out%20Kenya%20Aesthetics%20Premium%20Wallpapers!%20https://kenyaaesthetics.github.io/kenya-aesthetics/" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+  <!-- Floating Share Button -->
+  <div class="share-menu">
+    <div class="share-options" id="shareOptions">
+      <a href="https://wa.me/?text=Check%20out%20Kenya%20Aesthetics%20Premium%20Wallpapers!%20https://kenyaaesthetics.github.io/kenya-aesthetics/" target="_blank" onclick="closeShareMenu()"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/" target="_blank" onclick="closeShareMenu()"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/intent/tweet?text=Check%20out%20Kenya%20Aesthetics%20Premium%20Wallpapers!%20https://kenyaaesthetics.github.io/kenya-aesthetics/" target="_blank" onclick="closeShareMenu()"><i class="fab fa-twitter"></i></a>
+      <a href="#" onclick="copyLink(); closeShareMenu()"><i class="fas fa-link"></i></a>
+    </div>
+    <div class="share-main" onclick="toggleShareMenu()"><i class="fas fa-share-alt"></i></div>
   </div>
 
   <script>
+    function toggleShareMenu() {
+      const options = document.getElementById('shareOptions');
+      options.style.display = options.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function closeShareMenu() {
+      document.getElementById('shareOptions').style.display = 'none';
+    }
+
     function copyLink() {
       navigator.clipboard.writeText('https://kenyaaesthetics.github.io/kenya-aesthetics/');
       alert('Link copied to clipboard!');
+    }
+
+    function showSampleMessage() {
+      alert("Thank you for requesting samples! 🎉\n\nWe’ll send you free sample wallpapers within a few hours so you can see the quality before you decide. We truly appreciate your interest in Kenya Aesthetics!");
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+      alert("✅ Thank you for your order!\n\nWe’ve received your request and will start working on your custom wallpaper immediately. Please send your payment of KES 100 to our M-Pesa number: 0712 345 678. Once payment is confirmed, we’ll deliver your premium wallpaper within 24 hours.\n\nWe truly appreciate your trust in Kenya Aesthetics! ✨");
     }
   </script>
 </body>

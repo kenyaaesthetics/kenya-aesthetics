@@ -1,249 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Premium custom wallpapers for every device - Kenya Aesthetics" />
   <title>Kenya Aesthetics</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fff;
       color: #000;
       line-height: 1.6;
       overflow-x: hidden;
     }
-    * {
-      scroll-behavior: smooth;
-    }
+    * { scroll-behavior: smooth; }
 
+    /* NAV */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      top: 0; left: 0;
+      width: 100%; height: 60px;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 0 40px;
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-      z-index: 999;
-      opacity: 0;
-      transform: translateY(-100%);
-      transition: all 0.5s ease;
+      z-index: 1000;
+      opacity: 0; transform: translateY(-100%);
+      transition: all .5s ease;
     }
-    nav.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    nav .logo {
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: -0.3px;
-    }
+    nav.visible { opacity: 1; transform: translateY(0); }
+    nav .logo { font-size: 1.2rem; font-weight: 600; }
     nav .links a {
       margin-left: 20px;
-      text-decoration: none;
-      color: #000;
-      font-size: 0.95rem;
-      transition: opacity 0.3s;
+      text-decoration: none; color: #000;
+      font-size: .95rem; transition: opacity .3s;
     }
-    nav .links a:hover {
-      opacity: 0.5;
-    }
+    nav .links a:hover { opacity: 0.5; }
 
+    /* HERO */
     header {
       height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
       text-align: center;
-      background: linear-gradient(180deg, #fff, #f5f5f7);
+      background: linear-gradient(180deg,#fff,#f5f5f7);
       padding: 0 20px;
-      opacity: 0;
-      transform: translateY(30px);
       animation: fadeUp 1.2s ease forwards;
-      background-attachment: fixed;
     }
-    h1 {
-      font-size: 4.5rem;
-      font-weight: 600;
-      letter-spacing: -1px;
+    header h1 {
+      font-size: 4rem; font-weight: 600; letter-spacing: -1px;
       margin-bottom: 20px;
     }
-    p.subtitle {
-      font-size: 1.4rem;
-      max-width: 700px;
-      color: #555;
-      margin-bottom: 40px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1.4s ease forwards;
-      animation-delay: 0.3s;
+    header p.subtitle {
+      font-size: 1.3rem; max-width: 700px;
+      color: #555; margin-bottom: 40px;
+      animation: fadeUp 1.4s ease forwards; animation-delay: .3s;
     }
     .button {
-      display: inline-block;
-      padding: 16px 32px;
+      display: inline-block; padding: 14px 30px;
       font-size: 1.1rem;
-      background-color: #000;
-      color: #fff;
-      text-decoration: none;
+      background: #000; color: #fff; text-decoration: none;
       border-radius: 50px;
-      transition: background 0.3s ease, transform 0.3s ease;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1.6s ease forwards;
-      animation-delay: 0.6s;
+      transition: all .3s ease;
+      animation: fadeUp 1.6s ease forwards; animation-delay: .6s;
     }
-    .button:hover {
-      background-color: #333;
-      transform: scale(1.05);
-    }
+    .button:hover { background: #333; transform: scale(1.05); }
 
+    /* SECTIONS */
     section {
-      padding: 160px 20px;
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px) scale(0.98);
+      padding: 120px 20px; max-width: 1000px; margin: auto; text-align: center;
+      opacity: 0; transform: translateY(40px) scale(0.98);
       transition: all 1s ease;
     }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    section h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    section p {
-      font-size: 1.3rem;
-      color: #555;
-      max-width: 750px;
-      margin: auto;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 60px;
-      margin-top: 80px;
-    }
-    .feature {
-      padding: 20px;
-      opacity: 0;
-      transform: translateY(30px) scale(0.98);
-      transition: all 1s ease;
-    }
-    .feature.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .sticky-section {
-      position: relative;
-      height: 200vh;
-    }
-    .sticky-content {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      background: #000;
-      color: #fff;
-      opacity: 0;
-      transform: scale(0.95);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    .sticky-content.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
+    section.visible { opacity: 1; transform: translateY(0) scale(1); }
+    section h2 { font-size: 3rem; margin-bottom: 20px; }
+    section p { font-size: 1.2rem; color: #555; max-width: 750px; margin: auto; }
 
     .parallax {
-      height: 70vh;
-      background: url('https://www.apple.com/v/home/aw/images/heroes/iphone-15-pro/hero_endframe__e6khcva4hkeq_large.jpg') no-repeat center center/cover;
+      height: 60vh; display:flex; justify-content:center; align-items:center;
+      color:#fff; font-size:2rem; font-weight:600; text-shadow:0 2px 10px rgba(0,0,0,0.3);
+      background: url('https://www.apple.com/v/home/aw/images/heroes/iphone-15-pro/hero_endframe__e6khcva4hkeq_large.jpg') no-repeat center/cover;
       background-attachment: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-      font-weight: 600;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      opacity: 0;
-      transform: scale(0.98);
-      transition: opacity 1s ease, transform 1s ease;
+      opacity:0; transform:scale(.98); transition:1s;
     }
-    .parallax.visible {
-      opacity: 1;
-      transform: scale(1);
+    .parallax.visible { opacity:1; transform:scale(1); }
+
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:40px; margin-top:60px; }
+    .feature { opacity:0; transform:translateY(30px); transition:all 1s ease; }
+    .feature.visible { opacity:1; transform:translateY(0); }
+
+    /* ORDER SECTIONS */
+    .order-section { background:#f5f5f7; padding:100px 20px; text-align:center; }
+    .order-section h2 { font-size:2.6rem; }
+    .order-section p { max-width:700px; margin:auto; color:#444; margin-bottom:30px; }
+    form {
+      max-width:500px; margin:30px auto; display:flex; flex-direction:column; gap:15px;
+    }
+    form input, form textarea {
+      padding:14px; border:1px solid #ddd; border-radius:12px; font-size:1rem; font-family:inherit;
+    }
+    form button {
+      background:#000; color:#fff; padding:14px; border:none; border-radius:50px;
+      font-size:1.1rem; cursor:pointer; transition:.3s;
+    }
+    form button:hover { background:#333; }
+    .confirmation {
+      margin-top:20px; padding:20px; background:#fff; border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .order-section {
-      background: #f5f5f7;
-      padding: 120px 20px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px) scale(0.98);
-      transition: all 1s ease;
-    }
-    .order-section.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    .order-section h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    .order-section p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: auto;
-      color: #444;
-      margin-bottom: 40px;
-    }
+    /* FOOTER */
+    footer { text-align:center; padding:50px 20px; font-size:.85rem; color:#666; background:#f5f5f7; }
+    .footer-links a { margin:0 10px; color:#666; text-decoration:none; }
+    .footer-links a:hover { opacity:0.6; }
 
-    footer {
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 0.85rem;
-      color: #666;
-      background: #f5f5f7;
+    /* MODAL */
+    .modal {
+      position: fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.4);
+      display:none; justify-content:center; align-items:center; z-index:2000;
     }
-    .footer-links {
-      margin-top: 15px;
+    .modal.active { display:flex; }
+    .modal-content {
+      background:#fff; padding:40px; max-width:600px; border-radius:20px; text-align:left;
+      animation:fadeUp .5s ease forwards;
     }
-    .footer-links a {
-      color: #666;
-      margin: 0 10px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: opacity 0.3s;
-    }
-    .footer-links a:hover {
-      opacity: 0.6;
-    }
+    .modal-content h3 { margin-top:0; }
+    .close-btn { margin-top:20px; display:inline-block; background:#000; color:#fff; padding:10px 20px; border-radius:50px; text-decoration:none; }
 
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
   </style>
 </head>
 <body>
@@ -268,76 +155,126 @@
     <p>Our wallpapers are optimized for iPhone, Android, tablets, and desktops. Precision-crafted to make your device look truly premium.</p>
   </section>
 
-  <div class="sticky-section">
-    <div class="sticky-content">Feels Like Apple. But It’s Yours.</div>
-  </div>
-
-  <div class="parallax">
-    Premium Feel. Seamless Design.
-  </div>
+  <div class="parallax">Premium Feel. Seamless Design.</div>
 
   <section id="why">
     <h2>Why Kenya Aesthetics?</h2>
     <div class="features">
-      <div class="feature">
-        <h3>Premium Quality</h3>
-        <p>High-resolution designs built for a stunning visual experience.</p>
-      </div>
-      <div class="feature">
-        <h3>Custom Made</h3>
-        <p>Each wallpaper is personalized to match your style and device.</p>
-      </div>
-      <div class="feature">
-        <h3>Instant Delivery</h3>
-        <p>Receive your wallpaper instantly after ordering. No waiting, just beauty.</p>
-      </div>
+      <div class="feature"><h3>Premium Quality</h3><p>High-resolution designs built for a stunning visual experience.</p></div>
+      <div class="feature"><h3>Custom Made</h3><p>Each wallpaper is personalized to match your style and device.</p></div>
+      <div class="feature"><h3>Instant Delivery</h3><p>Receive your wallpaper instantly after ordering. No waiting, just beauty.</p></div>
     </div>
   </section>
 
-  <div class="parallax" style="background:url('https://www.apple.com/v/home/aw/images/heroes/ipad-pro/hero_ipad_pro__bpt7a9d8juyy_large.jpg') no-repeat center/cover;">
-    Minimal. Timeless.
-  </div>
+  <div class="parallax" style="background:url('https://www.apple.com/v/home/aw/images/heroes/ipad-pro/hero_ipad_pro__bpt7a9d8juyy_large.jpg') no-repeat center/cover;">Minimal. Timeless.</div>
 
+  <!-- SAMPLE REQUEST -->
   <section id="sample">
     <h2>Get a Free Sample</h2>
-    <p>Want to experience the Kenya Aesthetics difference? Request a free sample wallpaper and feel the quality yourself before ordering.</p>
-    <a href="#order" class="button">Request Your Sample →</a>
+    <p>Want to experience the Kenya Aesthetics difference? Request a free sample wallpaper below.</p>
+    <form action="https://formsubmit.co/rudrafrial@gmail.com" method="POST" id="sampleForm">
+      <input type="hidden" name="formType" value="Sample Request">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <button type="submit">Request Sample</button>
+    </form>
+    <div id="sampleConfirm" class="confirmation" style="display:none;">✅ Your sample request has been received! Check your email soon.</div>
   </section>
 
+  <!-- ORDER -->
   <div class="order-section" id="order">
     <h2>Ready to Order?</h2>
     <p>Your premium custom wallpaper is just a click away. Simple pricing. Instant delivery. A truly Apple-like experience for your screen.</p>
-    <a href="https://kenyaaesthetics.github.io/kenya-aesthetics/" class="button">Order Now →</a>
+    <form action="https://formsubmit.co/rudrafrial@gmail.com" method="POST" id="orderForm">
+      <input type="hidden" name="formType" value="Wallpaper Order">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="details" placeholder="Describe your wallpaper style" required></textarea>
+      <button type="submit">Place Order</button>
+    </form>
+    <div id="orderConfirm" class="confirmation" style="display:none;">
+      ✅ Thank you! Your order has been received.<br><br>
+      <strong>To complete payment:</strong><br>
+      Send <strong>KES 100</strong> via <strong>M‑Pesa</strong> to <strong>0797507477</strong>.<br>
+      We’ll email your premium wallpaper instantly after payment.
+    </div>
   </div>
 
   <footer>
     <p>© 2025 Kenya Aesthetics. All rights reserved.</p>
     <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Support</a>
+      <a href="#" class="open-modal" data-modal="privacy">Privacy Policy</a>
+      <a href="#" class="open-modal" data-modal="terms">Terms of Service</a>
+      <a href="#" class="open-modal" data-modal="support">Support</a>
     </div>
   </footer>
 
+  <!-- MODALS -->
+  <div class="modal" id="privacy">
+    <div class="modal-content">
+      <h3>Privacy Policy</h3>
+      <p>We respect your privacy. Your information is only used to fulfill your request and never shared.</p>
+      <a href="#" class="close-btn">Close</a>
+    </div>
+  </div>
+  <div class="modal" id="terms">
+    <div class="modal-content">
+      <h3>Terms of Service</h3>
+      <p>By using Kenya Aesthetics, you agree that wallpapers are for personal use only and non-refundable once delivered.</p>
+      <a href="#" class="close-btn">Close</a>
+    </div>
+  </div>
+  <div class="modal" id="support">
+    <div class="modal-content">
+      <h3>Support</h3>
+      <p>Need help? Email us anytime at <strong>rudrafrial@gmail.com</strong> and we’ll respond promptly.</p>
+      <a href="#" class="close-btn">Close</a>
+    </div>
+  </div>
+
   <script>
-    const navbar = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('visible');
-      } else {
-        navbar.classList.remove('visible');
-      }
+    // Navbar scroll reveal
+    const navbar=document.querySelector('nav');
+    window.addEventListener('scroll',()=>{
+      navbar.classList.toggle('visible',window.scrollY>50);
     });
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    // Intersection fade-in
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add('visible');}
       });
-    }, { threshold: 0.1 });
+    },{threshold:.1});
+    document.querySelectorAll('section,.parallax,.feature').forEach(el=>observer.observe(el));
 
-    document.querySelectorAll('section, .feature, .parallax, .sticky-content, .order-section').forEach(el => observer.observe(el));
+    // Forms confirmation
+    document.getElementById('sampleForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      e.target.style.display='none';
+      document.getElementById('sampleConfirm').style.display='block';
+      e.target.submit();
+    });
+
+    document.getElementById('orderForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      e.target.style.display='none';
+      document.getElementById('orderConfirm').style.display='block';
+      e.target.submit();
+    });
+
+    // Modals
+    document.querySelectorAll('.open-modal').forEach(link=>{
+      link.addEventListener('click',e=>{
+        e.preventDefault();
+        document.getElementById(link.dataset.modal).classList.add('active');
+      });
+    });
+    document.querySelectorAll('.close-btn').forEach(btn=>{
+      btn.addEventListener('click',e=>{
+        e.preventDefault();
+        btn.closest('.modal').classList.remove('active');
+      });
+    });
   </script>
 </body>
 </html>

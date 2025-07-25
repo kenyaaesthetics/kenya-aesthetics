@@ -119,6 +119,28 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    /* Success message styling */
+    .success-message {
+      position: fixed;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0abf53;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: all 0.5s ease;
+      z-index: 999;
+    }
+
+    .success-message.show {
+      bottom: 30px;
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -153,8 +175,7 @@
     <section>
       <h2>Want Free Samples?</h2>
       <p>Not sure yet? Request free sample wallpapers to see the quality before you buy.</p>
-      <form action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://kenyaaesthetics.github.io/kenya-aesthetics/thank-you.html">
+      <form class="form-submit" action="https://formsubmit.co/ajax/rudrafarial@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
@@ -164,8 +185,7 @@
 
     <section id="order">
       <h2>Order Now</h2>
-      <form action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://kenyaaesthetics.github.io/kenya-aesthetics/thank-you.html">
+      <form class="form-submit" action="https://formsubmit.co/ajax/rudrafarial@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="text" name="contact" placeholder="Your Email or Phone Number" required>
@@ -176,8 +196,37 @@
 
   </div>
 
+  <div class="success-message" id="successMessage">
+    ✅ Thank you! Your request has been received. We’ll contact you soon!
+  </div>
+
   <footer>
     &copy; 2025 Kenya Aesthetics. All rights reserved.
   </footer>
+
+  <script>
+    document.querySelectorAll('.form-submit').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            const msg = document.getElementById('successMessage');
+            msg.classList.add('show');
+            setTimeout(() => msg.classList.remove('show'), 4000);
+            form.reset();
+          } else {
+            alert('Something went wrong. Please try again.');
+          }
+        })
+        .catch(() => alert('Network error. Please try again.'));
+      });
+    });
+  </script>
 </body>
 </html>

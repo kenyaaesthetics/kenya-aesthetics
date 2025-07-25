@@ -6,91 +6,338 @@
   <meta name="description" content="Premium custom wallpapers for every device - Kenya Aesthetics" />
   <title>Kenya Aesthetics</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background-color: #fff;
       color: #000;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+    * {
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: all 0.5s ease;
+    }
+    nav.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    nav .logo {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+    nav .links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #000;
+      font-size: 0.95rem;
+      transition: opacity 0.3s;
+    }
+    nav .links a:hover {
+      opacity: 0.5;
+    }
+
     header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 100px 20px 60px;
+      background: linear-gradient(180deg, #fff, #f5f5f7);
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s ease forwards;
+      background-attachment: fixed;
     }
     h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 4.5rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
     }
     p.subtitle {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      max-width: 700px;
       color: #555;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1.4s ease forwards;
+      animation-delay: 0.3s;
     }
     .button {
       display: inline-block;
-      margin-top: 30px;
-      padding: 14px 28px;
-      font-size: 1rem;
+      padding: 16px 32px;
+      font-size: 1.1rem;
       background-color: #000;
       color: #fff;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 50px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1.6s ease forwards;
+      animation-delay: 0.6s;
     }
-    section.features {
-      display: flex;
-      justify-content: space-around;
-      padding: 60px 20px;
-      border-top: 1px solid #eee;
+    .button:hover {
+      background-color: #333;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 160px 20px;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: all 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    section h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    section p {
+      font-size: 1.3rem;
+      color: #555;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 60px;
+      margin-top: 80px;
     }
     .feature {
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: all 1s ease;
+    }
+    .feature.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .sticky-section {
+      position: relative;
+      height: 200vh;
+    }
+    .sticky-content {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: #000;
+      color: #fff;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .sticky-content.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .parallax {
+      height: 70vh;
+      background: url('https://www.apple.com/v/home/aw/images/heroes/iphone-15-pro/hero_endframe__e6khcva4hkeq_large.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: 600;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: scale(0.98);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .parallax.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .order-section {
+      background: #f5f5f7;
+      padding: 120px 20px;
       text-align: center;
-      max-width: 200px;
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: all 1s ease;
     }
-    section.showcase {
-      text-align: center;
-      padding: 60px 20px;
+    .order-section.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
-    .wallpaper-preview {
-      width: 80%;
-      max-width: 400px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    .order-section h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
     }
+    .order-section p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: auto;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
     footer {
       text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #888;
+      padding: 60px 20px;
+      font-size: 0.85rem;
+      color: #666;
+      background: #f5f5f7;
+    }
+    .footer-links {
+      margin-top: 15px;
+    }
+    .footer-links a {
+      color: #666;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+    }
+    .footer-links a:hover {
+      opacity: 0.6;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo">Kenya Aesthetics</div>
+    <div class="links">
+      <a href="#">Home</a>
+      <a href="#sample">Sample</a>
+      <a href="#why">Why Us</a>
+      <a href="#order">Order</a>
+    </div>
+  </nav>
+
   <header>
     <h1>Wallpapers. Redefined.</h1>
-    <p class="subtitle">Premium digital wallpapers crafted for your device.</p>
-    <a href="#" class="button">Request Yours →</a>
+    <p class="subtitle">Minimal. Elegant. Designed to inspire every time you unlock your screen. Kenya Aesthetics brings you premium custom wallpapers for every device.</p>
+    <a href="#sample" class="button">Request Sample →</a>
   </header>
 
-  <section class="features">
-    <div class="feature">
-      <h3>Premium Quality</h3>
-      <p>Designed to stand out on every screen.</p>
-    </div>
-    <div class="feature">
-      <h3>Custom Designs</h3>
-      <p>Tailored to your taste and device.</p>
-    </div>
-    <div class="feature">
-      <h3>Instant Delivery</h3>
-      <p>Delivered via email or link instantly after order.</p>
+  <section>
+    <h2>Designed for Every Device</h2>
+    <p>Our wallpapers are optimized for iPhone, Android, tablets, and desktops. Precision-crafted to make your device look truly premium.</p>
+  </section>
+
+  <div class="sticky-section">
+    <div class="sticky-content">Feels Like Apple. But It’s Yours.</div>
+  </div>
+
+  <div class="parallax">
+    Premium Feel. Seamless Design.
+  </div>
+
+  <section id="why">
+    <h2>Why Kenya Aesthetics?</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Premium Quality</h3>
+        <p>High-resolution designs built for a stunning visual experience.</p>
+      </div>
+      <div class="feature">
+        <h3>Custom Made</h3>
+        <p>Each wallpaper is personalized to match your style and device.</p>
+      </div>
+      <div class="feature">
+        <h3>Instant Delivery</h3>
+        <p>Receive your wallpaper instantly after ordering. No waiting, just beauty.</p>
+      </div>
     </div>
   </section>
 
-  <section class="showcase">
-    <h2>Sample Wallpaper</h2>
-    <img src="https://via.placeholder.com/400x800.png?text=Wallpaper+Preview" alt="Wallpaper sample" class="wallpaper-preview" />
+  <div class="parallax" style="background:url('https://www.apple.com/v/home/aw/images/heroes/ipad-pro/hero_ipad_pro__bpt7a9d8juyy_large.jpg') no-repeat center/cover;">
+    Minimal. Timeless.
+  </div>
+
+  <section id="sample">
+    <h2>Get a Free Sample</h2>
+    <p>Want to experience the Kenya Aesthetics difference? Request a free sample wallpaper and feel the quality yourself before ordering.</p>
+    <a href="#order" class="button">Request Your Sample →</a>
   </section>
+
+  <div class="order-section" id="order">
+    <h2>Ready to Order?</h2>
+    <p>Your premium custom wallpaper is just a click away. Simple pricing. Instant delivery. A truly Apple-like experience for your screen.</p>
+    <a href="https://kenyaaesthetics.github.io/kenya-aesthetics/" class="button">Order Now →</a>
+  </div>
 
   <footer>
-    © 2025 Kenya Aesthetics. All rights reserved.
+    <p>© 2025 Kenya Aesthetics. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Support</a>
+    </div>
   </footer>
+
+  <script>
+    const navbar = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('visible');
+      } else {
+        navbar.classList.remove('visible');
+      }
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .feature, .parallax, .sticky-content, .order-section').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

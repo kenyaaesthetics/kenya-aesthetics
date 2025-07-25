@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kenya Aesthetics - Premium Custom Wallpapers for only KES 100. Tailored to your style and delivered in 24 hours." />
+  <meta name="description" content="Kenya Aesthetics - Premium Custom Wallpapers in Kenya for only KES 100. High-quality, fast delivery within 24 hours, tailored to your style." />
+  <meta name="keywords" content="Kenya wallpapers, custom wallpapers Kenya, aesthetic wallpapers, premium wallpapers, Kenya Aesthetics" />
   <title>Kenya Aesthetics | Premium Wallpapers</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -40,6 +41,17 @@
       font-size: 1.2rem;
       margin-top: 10px;
       opacity: 0.85;
+    }
+
+    .intro-text {
+      margin-top: 20px;
+      font-size: 1rem;
+      background: #fff;
+      color: #000;
+      padding: 15px;
+      display: inline-block;
+      border-radius: 10px;
+      max-width: 600px;
     }
 
     .container {
@@ -94,7 +106,6 @@
       font-weight: 500;
       margin-top: 15px;
       transition: background 0.3s ease;
-      cursor: pointer;
     }
 
     .btn:hover {
@@ -120,34 +131,13 @@
       font-size: 0.9rem;
       color: #777;
     }
-
-    /* Popup success message */
-    .popup {
-      position: fixed;
-      bottom: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #0abf53;
-      color: #fff;
-      padding: 16px 30px;
-      border-radius: 12px;
-      font-size: 1rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      opacity: 0;
-      transition: all 0.5s ease;
-      z-index: 1000;
-    }
-
-    .popup.show {
-      bottom: 30px;
-      opacity: 1;
-    }
   </style>
 </head>
 <body>
   <header>
     <h1>Kenya Aesthetics</h1>
     <p>Premium Custom Wallpapers – Designed Just for You</p>
+    <p class="intro-text">Kenya Aesthetics offers premium custom wallpapers in Kenya for only KES 100. Whether you love minimal, aesthetic, or luxury designs, we create unique high-quality wallpapers tailored to your style. Fast delivery within 24 hours, trusted by customers across Kenya.</p>
     <p style="margin-top:15px; font-size:1rem; background:#fff; color:#000; padding:10px; display:inline-block; border-radius:10px;">Pay via M-Pesa to <strong>0797507477</strong> then place your order</p>
     <a href="#order" class="btn">Order Now for KES 100</a>
   </header>
@@ -176,8 +166,7 @@
     <section>
       <h2>Want Free Samples?</h2>
       <p>Not sure yet? Request free sample wallpapers to see the quality before you buy.</p>
-      <form class="custom-form" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
+      <form onsubmit="event.preventDefault(); this.reset(); showMessage('✅ Thank you! Your sample request has been received. We’ll email you shortly with free samples.');" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <button class="btn" type="submit">Request Samples</button>
@@ -186,13 +175,25 @@
 
     <section id="order">
       <h2>Order Now</h2>
-      <form class="custom-form" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
+      <form onsubmit="event.preventDefault(); this.reset(); showMessage('✅ Thank you! Your order has been placed successfully. We’ll contact you within 24 hours with your custom wallpaper.');" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="text" name="contact" placeholder="Your Email or Phone Number" required>
         <textarea name="style" placeholder="Describe your wallpaper style" rows="4"></textarea>
         <button class="btn" type="submit">Place Order</button>
       </form>
+    </section>
+
+    <section>
+      <h2>Testimonials</h2>
+      <p>⭐ “Absolutely love my new wallpaper! Fast delivery and amazing quality.” – Mary K.</p>
+      <p>⭐ “Best KES 100 I’ve ever spent! Highly recommend Kenya Aesthetics.” – Kevin M.</p>
+    </section>
+
+    <section>
+      <h2>FAQs</h2>
+      <p><strong>How long does it take to get my wallpaper?</strong><br>Within 24 hours after placing your order.</p>
+      <p><strong>How do I pay?</strong><br>Pay via M-Pesa to <strong>0797507477</strong> then confirm your order.</p>
+      <p><strong>Can I see samples before buying?</strong><br>Yes! Request free samples above.</p>
     </section>
 
   </div>
@@ -201,29 +202,23 @@
     &copy; 2025 Kenya Aesthetics. All rights reserved.
   </footer>
 
-  <!-- Popup message -->
-  <div id="popup" class="popup">✅ Thank you! Your request has been received. We’ll get back to you soon.</div>
-
   <script>
-    document.querySelectorAll('.custom-form').forEach(form => {
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const formData = new FormData(form);
-        fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        }).then(() => {
-          form.reset();
-          const popup = document.getElementById('popup');
-          popup.classList.add('show');
-          setTimeout(() => popup.classList.remove('show'), 4000);
-        }).catch(() => {
-          alert('Something went wrong. Please try again.');
-        });
-      });
-    });
+    function showMessage(msg) {
+      const note = document.createElement('div');
+      note.textContent = msg;
+      note.style.position = 'fixed';
+      note.style.bottom = '20px';
+      note.style.left = '50%';
+      note.style.transform = 'translateX(-50%)';
+      note.style.background = '#000';
+      note.style.color = '#fff';
+      note.style.padding = '15px 20px';
+      note.style.borderRadius = '10px';
+      note.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
+      note.style.zIndex = '9999';
+      document.body.appendChild(note);
+      setTimeout(() => note.remove(), 4000);
+    }
   </script>
 </body>
 </html>

@@ -106,6 +106,8 @@
       font-weight: 500;
       margin-top: 15px;
       transition: background 0.3s ease;
+      cursor: pointer;
+      border: none;
     }
 
     .btn:hover {
@@ -196,19 +198,19 @@
     <section>
       <h2>Want Free Samples?</h2>
       <p>Not sure yet? Request free sample wallpapers to see the quality before you buy.</p>
-      <form onsubmit="showToast('Thanks! Your sample request has been received. We’ll send them soon.') ; return false;">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
+      <form action="https://formspree.io/f/mzzbnebl" method="POST" onsubmit="showToast('Thanks! Your sample request has been received. We’ll send them soon.')">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
         <button class="btn" type="submit">Request Samples</button>
       </form>
     </section>
 
     <section id="order">
       <h2>Order Now</h2>
-      <form onsubmit="showToast('Thank you for your order! Please complete your M-Pesa payment to 0797507477. Your wallpaper will be delivered within 24 hours.') ; return false;">
-        <input type="text" placeholder="Your Name" required>
-        <input type="text" placeholder="Your Email or Phone Number" required>
-        <textarea placeholder="Describe your wallpaper style" rows="4"></textarea>
+      <form action="https://formspree.io/f/mzzbnebl" method="POST" onsubmit="showToast('Thank you for your order! Please complete your M-Pesa payment to 0797507477. Your wallpaper will be delivered within 24 hours.')">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="text" name="contact" placeholder="Your Email or Phone Number" required>
+        <textarea name="details" placeholder="Describe your wallpaper style" rows="4"></textarea>
         <button class="btn" type="submit">Place Order</button>
       </form>
     </section>
@@ -227,7 +229,6 @@
       const toast = document.getElementById('toast');
       toast.textContent = message;
       toast.classList.add('show');
-
       setTimeout(() => {
         toast.classList.remove('show');
       }, 4000);

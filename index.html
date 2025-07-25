@@ -1,212 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kenya Aesthetics - Premium Wallpapers</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenya Aesthetics – Premium Wallpapers</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
       background: #fff;
-      color: #111;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      flex-grow: 1;
-    }
-    h1 {
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      color: #000;
       text-align: center;
     }
-    p.subheading {
-      font-size: 1.125rem;
-      color: #555;
-      margin-bottom: 3rem;
-      text-align: center;
+    header {
+      padding: 4rem 2rem;
     }
-    form {
-      background: #f9fafb;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
-      max-width: 600px;
-      margin: 2rem auto;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
+    header h1 {
+      font-size: 2.8rem;
       font-weight: 600;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 0.6rem;
       margin-bottom: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.3s;
     }
-    input:focus, select:focus, textarea:focus {
-      border-color: #0071e3;
-      outline: none;
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .buttons {
+      margin-top: 2rem;
     }
     button {
-      background-color: #0071e3;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1.125rem;
-      cursor: pointer;
+      background: #000;
+      color: #fff;
       border: none;
-      transition: background-color 0.3s;
+      padding: 0.8rem 1.6rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
     }
     button:hover {
-      background-color: #005bb5;
+      opacity: 0.8;
     }
-    .success-message {
+    .hidden {
       display: none;
-      background-color: #d1fae5;
-      color: #065f46;
-      border: 1px solid #10b981;
-      padding: 1rem 1.5rem;
-      margin: 1rem auto;
-      max-width: 600px;
+    }
+    form {
+      margin: 2rem auto;
+      max-width: 400px;
+      text-align: left;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      font-weight: 600;
-      text-align: center;
+      font-size: 1rem;
+    }
+    .confirmation {
+      padding: 3rem 2rem;
+      font-size: 1.2rem;
     }
     footer {
-      margin-top: auto;
-      padding: 2rem 0;
-      border-top: 1px solid #e2e8f0;
-      text-align: center;
+      padding: 2rem;
       font-size: 0.9rem;
-      color: #666;
+      color: #777;
     }
     footer a {
-      margin: 0 1rem;
-      color: #0071e3;
+      color: #000;
+      margin: 0 0.5rem;
       text-decoration: none;
-      font-weight: 600;
-    }
-    footer a:hover {
-      text-decoration: underline;
-      color: #005bb5;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Kenya Aesthetics</h1>
-    <p class="subheading">Premium Custom Wallpapers — Quality, Style & Elegance</p>
+  <header>
+    <h1>Premium Feel. Seamless Design.</h1>
+    <p>Experience wallpapers crafted with timeless minimalism. Designed to elevate your device.</p>
+    <div class="buttons">
+      <button onclick="showForm('sample')">Request Samples</button>
+      <button onclick="showForm('order')">Place Order</button>
+    </div>
+  </header>
 
-    <!-- Order Form -->
-    <form id="orderForm" action="https://formsubmit.co/rudrafrial@gmail.com" method="POST" onsubmit="return handleSubmit(event, 'order')">
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_subject" value="New Kenya Aesthetics Wallpaper Order" />
-      <input type="hidden" name="_template" value="table" />
-      <label for="nameOrder">Full Name</label>
-      <input type="text" id="nameOrder" name="Name" required placeholder="Your full name" />
-      <label for="emailOrder">Email</label>
-      <input type="email" id="emailOrder" name="Email" required placeholder="Your email address" />
-      <label for="phoneOrder">Phone Number</label>
-      <input type="tel" id="phoneOrder" name="Phone" required placeholder="Your phone number" />
-      <label for="addressOrder">Delivery Address</label>
-      <textarea id="addressOrder" name="Address" rows="3" required placeholder="Full delivery address"></textarea>
-      <label for="wallpaperType">Wallpaper Type</label>
-      <select id="wallpaperType" name="Wallpaper Type" required>
-        <option value="" disabled selected>Select wallpaper type</option>
-        <option>Floral</option>
-        <option>Geometric</option>
-        <option>Abstract</option>
-        <option>Minimalist</option>
-      </select>
-      <button type="submit">Place Order</button>
+  <!-- Sample & Order Forms -->
+  <section id="forms">
+    <form id="sampleForm" class="hidden">
+      <h2>Request Samples</h2>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <button type="submit">Submit</button>
     </form>
 
-    <div id="orderSuccess" class="success-message">
-      ✅ Thank you for your order!<br />
-      Please complete your payment with M-Pesa to 0797507477.<br />
-      We will contact you shortly to confirm details.
-    </div>
-
-    <!-- Sample Request Form -->
-    <form id="sampleForm" action="https://formsubmit.co/rudrafrial@gmail.com" method="POST" onsubmit="return handleSubmit(event, 'sample')">
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_subject" value="New Kenya Aesthetics Wallpaper Sample Request" />
-      <input type="hidden" name="_template" value="table" />
-      <label for="nameSample">Full Name</label>
-      <input type="text" id="nameSample" name="Name" required placeholder="Your full name" />
-      <label for="emailSample">Email</label>
-      <input type="email" id="emailSample" name="Email" required placeholder="Your email address" />
-      <label for="phoneSample">Phone Number</label>
-      <input type="tel" id="phoneSample" name="Phone" required placeholder="Your phone number" />
-      <button type="submit">Request Sample</button>
+    <form id="orderForm" class="hidden">
+      <h2>Place Your Order</h2>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="details" placeholder="Describe your wallpaper request" required></textarea>
+      <button type="submit">Submit Order</button>
     </form>
+  </section>
 
-    <div id="sampleSuccess" class="success-message">
-      ✅ Sample request received!<br />
-      We will contact you soon with details.
-    </div>
-  </div>
+  <!-- Confirmation -->
+  <section id="confirmation" class="hidden confirmation"></section>
 
   <footer>
-    <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> | 
-    <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> | 
-    <a href="support.html" target="_blank" rel="noopener noreferrer">Support</a>
+    <p>
+      <a href="#" onclick="alert('Privacy Policy page coming soon')">Privacy Policy</a> ·
+      <a href="#" onclick="alert('Terms of Service page coming soon')">Terms of Service</a> ·
+      <a href="#" onclick="alert('Support page coming soon')">Support</a>
+    </p>
+    <p>© 2025 Kenya Aesthetics</p>
   </footer>
 
   <script>
-    function handleSubmit(event, formType) {
-      event.preventDefault();
-      const form = event.target;
+    const FORMSUBMIT_URL = "https://formsubmit.co/ajax/rudrafrial@gmail.com";
 
-      // Disable button to prevent multiple submits
-      const button = form.querySelector("button[type=submit]");
-      button.disabled = true;
-      button.textContent = "Sending...";
-
-      const data = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        headers: { 'Accept': 'application/json' },
-        body: data,
-      })
-      .then(response => {
-        if (response.ok) {
-          form.reset();
-          button.disabled = false;
-          button.textContent = formType === 'order' ? "Place Order" : "Request Sample";
-          if (formType === 'order') {
-            document.getElementById('orderSuccess').style.display = 'block';
-            document.getElementById('sampleSuccess').style.display = 'none';
-          } else {
-            document.getElementById('sampleSuccess').style.display = 'block';
-            document.getElementById('orderSuccess').style.display = 'none';
-          }
-        } else {
-          alert('Oops! There was a problem submitting your form.');
-          button.disabled = false;
-          button.textContent = formType === 'order' ? "Place Order" : "Request Sample";
-        }
-      })
-      .catch(() => {
-        alert('Oops! There was a problem submitting your form.');
-        button.disabled = false;
-        button.textContent = formType === 'order' ? "Place Order" : "Request Sample";
-      });
-      return false;
+    function showForm(type) {
+      document.getElementById('sampleForm').classList.add('hidden');
+      document.getElementById('orderForm').classList.add('hidden');
+      document.getElementById('confirmation').classList.add('hidden');
+      if(type === 'sample') {
+        document.getElementById('sampleForm').classList.remove('hidden');
+      } else {
+        document.getElementById('orderForm').classList.remove('hidden');
+      }
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
+
+    function handleFormSubmit(form, type) {
+      const formData = new FormData(form);
+      formData.append("Form Type", type);
+
+      fetch(FORMSUBMIT_URL, {
+        method: "POST",
+        body: formData
+      }).then(() => {
+        showConfirmation(type);
+      }).catch(() => {
+        alert("Something went wrong. Please try again.");
+      });
+    }
+
+    function showConfirmation(type) {
+      document.getElementById('sampleForm').classList.add('hidden');
+      document.getElementById('orderForm').classList.add('hidden');
+
+      let confirmation = document.getElementById('confirmation');
+
+      if(type === 'sample') {
+        confirmation.innerHTML = `✅ Your sample request has been received.<br>We'll email you shortly with sample wallpapers.`;
+      } else {
+        confirmation.innerHTML = `✅ Thank you for your order!<br><br>Please complete payment via <strong>M-Pesa: 0797507477</strong><br>Once payment is received, your premium wallpapers will be delivered to your email.`;
+      }
+
+      confirmation.classList.remove('hidden');
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    document.getElementById("sampleForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      handleFormSubmit(this, "Sample Request");
+    });
+
+    document.getElementById("orderForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      handleFormSubmit(this, "Order");
+    });
   </script>
 </body>
 </html>

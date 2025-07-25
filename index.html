@@ -6,7 +6,6 @@
   <meta name="description" content="Kenya Aesthetics - Premium Custom Wallpapers for only KES 100. Tailored to your style and delivered in 24 hours." />
   <title>Kenya Aesthetics | Premium Wallpapers</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -29,9 +28,6 @@
       color: #fff;
       text-align: center;
       padding: 80px 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlide 1s ease forwards;
     }
 
     header h1 {
@@ -58,15 +54,7 @@
       margin-bottom: 30px;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeSlide 1s ease forwards;
     }
-
-    section:nth-child(1) { animation-delay: 0.2s; }
-    section:nth-child(2) { animation-delay: 0.4s; }
-    section:nth-child(3) { animation-delay: 0.6s; }
-    section:nth-child(4) { animation-delay: 0.8s; }
 
     h2 {
       font-size: 1.8rem;
@@ -106,8 +94,6 @@
       font-weight: 500;
       margin-top: 15px;
       transition: background 0.3s ease;
-      cursor: pointer;
-      border: none;
     }
 
     .btn:hover {
@@ -132,37 +118,6 @@
       padding: 40px;
       font-size: 0.9rem;
       color: #777;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlide 1s ease forwards;
-      animation-delay: 1s;
-    }
-
-    /* Fade + Slide Animation */
-    @keyframes fadeSlide {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #000;
-      color: #fff;
-      padding: 15px 25px;
-      border-radius: 30px;
-      font-size: 0.95rem;
-      opacity: 0;
-      transition: all 0.5s ease;
-      z-index: 999;
-    }
-
-    .toast.show {
-      bottom: 30px;
-      opacity: 1;
     }
   </style>
 </head>
@@ -198,7 +153,9 @@
     <section>
       <h2>Want Free Samples?</h2>
       <p>Not sure yet? Request free sample wallpapers to see the quality before you buy.</p>
-      <form action="https://formspree.io/f/mzzbnebl" method="POST" onsubmit="showToast('Thanks! Your sample request has been received. We’ll send them soon.')">
+      <form action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://kenyaaesthetics.github.io/kenya-aesthetics/thank-you.html">
+        <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <button class="btn" type="submit">Request Samples</button>
@@ -207,10 +164,12 @@
 
     <section id="order">
       <h2>Order Now</h2>
-      <form action="https://formspree.io/f/mzzbnebl" method="POST" onsubmit="showToast('Thank you for your order! Please complete your M-Pesa payment to 0797507477. Your wallpaper will be delivered within 24 hours.')">
+      <form action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://kenyaaesthetics.github.io/kenya-aesthetics/thank-you.html">
+        <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="text" name="contact" placeholder="Your Email or Phone Number" required>
-        <textarea name="details" placeholder="Describe your wallpaper style" rows="4"></textarea>
+        <textarea name="style" placeholder="Describe your wallpaper style" rows="4"></textarea>
         <button class="btn" type="submit">Place Order</button>
       </form>
     </section>
@@ -220,19 +179,5 @@
   <footer>
     &copy; 2025 Kenya Aesthetics. All rights reserved.
   </footer>
-
-  <!-- Toast Notification -->
-  <div id="toast" class="toast"></div>
-
-  <script>
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      toast.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 4000);
-    }
-  </script>
 </body>
 </html>

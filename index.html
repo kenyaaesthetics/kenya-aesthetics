@@ -120,10 +120,9 @@
       color: #777;
     }
 
-    /* Success message styling */
     .success-message {
       position: fixed;
-      bottom: -100px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       background: #0abf53;
@@ -131,15 +130,13 @@
       padding: 15px 25px;
       border-radius: 10px;
       font-size: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      opacity: 0;
-      transition: all 0.5s ease;
-      z-index: 999;
+      display: none;
+      animation: fadeInUp 0.3s ease;
     }
 
-    .success-message.show {
-      bottom: 30px;
-      opacity: 1;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
     }
   </style>
 </head>
@@ -175,7 +172,7 @@
     <section>
       <h2>Want Free Samples?</h2>
       <p>Not sure yet? Request free sample wallpapers to see the quality before you buy.</p>
-      <form class="form-submit" action="https://formsubmit.co/ajax/rudrafarial@gmail.com" method="POST">
+      <form class="ajax-form" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
@@ -185,7 +182,7 @@
 
     <section id="order">
       <h2>Order Now</h2>
-      <form class="form-submit" action="https://formsubmit.co/ajax/rudrafarial@gmail.com" method="POST">
+      <form class="ajax-form" action="https://formsubmit.co/rudrafarial@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="text" name="contact" placeholder="Your Email or Phone Number" required>
@@ -196,35 +193,28 @@
 
   </div>
 
-  <div class="success-message" id="successMessage">
-    ✅ Thank you! Your request has been received. We’ll contact you soon!
-  </div>
+  <div class="success-message" id="successMessage">✅ Thank you! Your request has been received. We'll get back to you soon.</div>
 
   <footer>
     &copy; 2025 Kenya Aesthetics. All rights reserved.
   </footer>
 
   <script>
-    document.querySelectorAll('.form-submit').forEach(form => {
+    document.querySelectorAll('.ajax-form').forEach(form => {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const formData = new FormData(form);
-        fetch(form.action, {
+        const formData = new FormData(this);
+        fetch(this.action, {
           method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          if (response.ok) {
-            const msg = document.getElementById('successMessage');
-            msg.classList.add('show');
-            setTimeout(() => msg.classList.remove('show'), 4000);
-            form.reset();
-          } else {
-            alert('Something went wrong. Please try again.');
-          }
-        })
-        .catch(() => alert('Network error. Please try again.'));
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        }).then(() => {
+          document.getElementById('successMessage').style.display = 'block';
+          setTimeout(() => {
+            document.getElementById('successMessage').style.display = 'none';
+          }, 4000);
+          this.reset();
+        });
       });
     });
   </script>

@@ -1,151 +1,212 @@
-<!-- Kenya Aesthetics Premium Landing Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kenya Aesthetics – Premium Wallpapers</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kenya Aesthetics - Premium Wallpapers</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
       background: #fff;
       color: #111;
-      opacity: 0;
-      transition: opacity 0.8s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    body.loaded {
-      opacity: 1;
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      flex-grow: 1;
     }
-    .fade {
-      transition: opacity 0.3s ease, transform 0.3s ease;
+    h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
     }
-    .modal-hidden {
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.95);
+    p.subheading {
+      font-size: 1.125rem;
+      color: #555;
+      margin-bottom: 3rem;
+      text-align: center;
     }
-    .modal-visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1);
+    form {
+      background: #f9fafb;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #0071e3;
+      outline: none;
     }
     button {
-      transition: all 0.2s ease;
+      background-color: #0071e3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.125rem;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
     }
     button:hover {
-      transform: scale(1.03);
+      background-color: #005bb5;
     }
-    #confirmationPopup {
-      transition: all 0.3s ease;
+    .success-message {
+      display: none;
+      background-color: #d1fae5;
+      color: #065f46;
+      border: 1px solid #10b981;
+      padding: 1rem 1.5rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+    }
+    footer {
+      margin-top: auto;
+      padding: 2rem 0;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      margin: 0 1rem;
+      color: #0071e3;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer a:hover {
+      text-decoration: underline;
+      color: #005bb5;
     }
   </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
+  <div class="container">
+    <h1>Kenya Aesthetics</h1>
+    <p class="subheading">Premium Custom Wallpapers — Quality, Style & Elegance</p>
 
-  <!-- HEADER -->
-  <header class="p-6 flex justify-between items-center">
-    <h1 class="text-2xl font-bold tracking-tight">Kenya Aesthetics</h1>
-    <nav class="space-x-4">
-      <button onclick="openModal('orderModal')" class="px-4 py-2 rounded-xl bg-black text-white">Place Order</button>
-      <button onclick="openModal('sampleModal')" class="px-4 py-2 rounded-xl border border-gray-300">Request Samples</button>
-    </nav>
-  </header>
+    <!-- Order Form -->
+    <form id="orderForm" action="https://formsubmit.co/rudrafrial@gmail.com" method="POST" onsubmit="return handleSubmit(event, 'order')">
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="New Kenya Aesthetics Wallpaper Order" />
+      <input type="hidden" name="_template" value="table" />
+      <label for="nameOrder">Full Name</label>
+      <input type="text" id="nameOrder" name="Name" required placeholder="Your full name" />
+      <label for="emailOrder">Email</label>
+      <input type="email" id="emailOrder" name="Email" required placeholder="Your email address" />
+      <label for="phoneOrder">Phone Number</label>
+      <input type="tel" id="phoneOrder" name="Phone" required placeholder="Your phone number" />
+      <label for="addressOrder">Delivery Address</label>
+      <textarea id="addressOrder" name="Address" rows="3" required placeholder="Full delivery address"></textarea>
+      <label for="wallpaperType">Wallpaper Type</label>
+      <select id="wallpaperType" name="Wallpaper Type" required>
+        <option value="" disabled selected>Select wallpaper type</option>
+        <option>Floral</option>
+        <option>Geometric</option>
+        <option>Abstract</option>
+        <option>Minimalist</option>
+      </select>
+      <button type="submit">Place Order</button>
+    </form>
 
-  <!-- HERO -->
-  <section class="text-center py-24 px-6">
-    <h2 class="text-4xl md:text-5xl font-semibold leading-tight">Premium Custom Wallpapers</h2>
-    <p class="mt-4 text-gray-600 text-lg max-w-xl mx-auto">Minimal. Elegant. Designed just for you. Kenya Aesthetics delivers wallpapers that redefine your space.</p>
-  </section>
+    <div id="orderSuccess" class="success-message">
+      ✅ Thank you for your order!<br />
+      Please complete your payment with M-Pesa to 0797507477.<br />
+      We will contact you shortly to confirm details.
+    </div>
 
-  <!-- ORDER MODAL -->
-  <div id="orderModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 fade modal-hidden">
-    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full relative">
-      <button onclick="closeModal('orderModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">✕</button>
-      <h3 class="text-2xl font-semibold mb-4">Place Your Order</h3>
-      <div class="payment-info mb-4 p-4 bg-gray-50 rounded-xl text-center">
-        <h4 class="text-lg font-semibold">Payment Instructions</h4>
-        <p class="mt-2 text-sm">Pay <span class="font-bold">KES 100</span> via M-Pesa to <span class="font-bold">0797507477</span>.</p>
-        <p class="mt-1 text-xs text-gray-500">After payment, fill out and submit the form below to confirm your order.</p>
-      </div>
-      <form id="orderForm" action="https://formsubmit.co/ajax/rudrafrial@gmail.com" method="POST" class="space-y-4">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="Name" placeholder="Your Name" class="w-full border rounded-xl p-3" required>
-        <input type="email" name="Email" placeholder="Your Email" class="w-full border rounded-xl p-3" required>
-        <textarea name="Details" placeholder="Wallpaper details (style, color, etc.)" class="w-full border rounded-xl p-3" required></textarea>
-        <button type="submit" class="w-full py-3 rounded-xl bg-black text-white">Submit Order</button>
-      </form>
+    <!-- Sample Request Form -->
+    <form id="sampleForm" action="https://formsubmit.co/rudrafrial@gmail.com" method="POST" onsubmit="return handleSubmit(event, 'sample')">
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="New Kenya Aesthetics Wallpaper Sample Request" />
+      <input type="hidden" name="_template" value="table" />
+      <label for="nameSample">Full Name</label>
+      <input type="text" id="nameSample" name="Name" required placeholder="Your full name" />
+      <label for="emailSample">Email</label>
+      <input type="email" id="emailSample" name="Email" required placeholder="Your email address" />
+      <label for="phoneSample">Phone Number</label>
+      <input type="tel" id="phoneSample" name="Phone" required placeholder="Your phone number" />
+      <button type="submit">Request Sample</button>
+    </form>
+
+    <div id="sampleSuccess" class="success-message">
+      ✅ Sample request received!<br />
+      We will contact you soon with details.
     </div>
   </div>
 
-  <!-- SAMPLE MODAL -->
-  <div id="sampleModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 fade modal-hidden">
-    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full relative">
-      <button onclick="closeModal('sampleModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">✕</button>
-      <h3 class="text-2xl font-semibold mb-4">Request Free Samples</h3>
-      <form id="sampleForm" action="https://formsubmit.co/ajax/rudrafrial@gmail.com" method="POST" class="space-y-4">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="Name" placeholder="Your Name" class="w-full border rounded-xl p-3" required>
-        <input type="email" name="Email" placeholder="Your Email" class="w-full border rounded-xl p-3" required>
-        <button type="submit" class="w-full py-3 rounded-xl bg-black text-white">Request Sample</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- CONFIRMATION POPUP -->
-  <div id="confirmationPopup" class="fixed top-5 right-5 bg-black text-white px-6 py-3 rounded-xl shadow-xl opacity-0 pointer-events-none">
-    ✅ Sent! We’ll get back to you shortly.
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="mt-auto p-6 text-center text-gray-500 text-sm">
-    © 2025 Kenya Aesthetics. Premium Wallpapers.
+  <footer>
+    <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> | 
+    <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms of Service</a> | 
+    <a href="support.html" target="_blank" rel="noopener noreferrer">Support</a>
   </footer>
 
-  <!-- SCRIPT -->
   <script>
-    // Fade-in animation on page load
-    window.addEventListener('load', () => {
-      document.body.classList.add('loaded');
-    });
+    function handleSubmit(event, formType) {
+      event.preventDefault();
+      const form = event.target;
 
-    function openModal(id) {
-      document.getElementById(id).classList.remove('modal-hidden');
-      document.getElementById(id).classList.add('modal-visible');
-    }
-    function closeModal(id) {
-      document.getElementById(id).classList.remove('modal-visible');
-      document.getElementById(id).classList.add('modal-hidden');
-    }
+      // Disable button to prevent multiple submits
+      const button = form.querySelector("button[type=submit]");
+      button.disabled = true;
+      button.textContent = "Sending...";
 
-    function showConfirmation() {
-      const popup = document.getElementById('confirmationPopup');
-      popup.style.opacity = '1';
-      popup.style.pointerEvents = 'auto';
-      setTimeout(() => {
-        popup.style.opacity = '0';
-        popup.style.pointerEvents = 'none';
-      }, 3000);
-    }
-
-    // Handle AJAX submission for both forms
-    function handleForm(formId) {
-      const form = document.getElementById(formId);
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form)
-        }).then(() => {
-          closeModal(formId === 'orderForm' ? 'orderModal' : 'sampleModal');
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        headers: { 'Accept': 'application/json' },
+        body: data,
+      })
+      .then(response => {
+        if (response.ok) {
           form.reset();
-          showConfirmation();
-        });
+          button.disabled = false;
+          button.textContent = formType === 'order' ? "Place Order" : "Request Sample";
+          if (formType === 'order') {
+            document.getElementById('orderSuccess').style.display = 'block';
+            document.getElementById('sampleSuccess').style.display = 'none';
+          } else {
+            document.getElementById('sampleSuccess').style.display = 'block';
+            document.getElementById('orderSuccess').style.display = 'none';
+          }
+        } else {
+          alert('Oops! There was a problem submitting your form.');
+          button.disabled = false;
+          button.textContent = formType === 'order' ? "Place Order" : "Request Sample";
+        }
+      })
+      .catch(() => {
+        alert('Oops! There was a problem submitting your form.');
+        button.disabled = false;
+        button.textContent = formType === 'order' ? "Place Order" : "Request Sample";
       });
+      return false;
     }
-
-    handleForm('orderForm');
-    handleForm('sampleForm');
   </script>
 </body>
 </html>

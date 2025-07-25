@@ -8,8 +8,6 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
     * {
@@ -144,50 +142,25 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* Floating Share Buttons */
-    .share-container {
+    /* Toast Notification */
+    .toast {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-
-    .share-toggle {
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
       background: #000;
       color: #fff;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      cursor: pointer;
+      padding: 15px 25px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: all 0.5s ease;
+      z-index: 999;
     }
 
-    .share-menu {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .share-menu a {
-      background: #000;
-      color: #fff;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 20px;
-      transition: background 0.3s ease;
-    }
-
-    .share-menu a:hover {
-      background: #333;
+    .toast.show {
+      bottom: 30px;
+      opacity: 1;
     }
   </style>
 </head>
@@ -195,6 +168,7 @@
   <header>
     <h1>Kenya Aesthetics</h1>
     <p>Premium Custom Wallpapers – Designed Just for You</p>
+    <p style="margin-top:15px; font-size:1rem; background:#fff; color:#000; padding:10px; display:inline-block; border-radius:10px;">Pay via M-Pesa to <strong>0797507477</strong> then place your order</p>
     <a href="#order" class="btn">Order Now for KES 100</a>
   </header>
 
@@ -222,24 +196,21 @@
     <section>
       <h2>Want Free Samples?</h2>
       <p>Not sure yet? Request free sample wallpapers to see the quality before you buy.</p>
-      <form id="sampleForm">
+      <form onsubmit="showToast('Thanks! Your sample request has been received. We’ll send them soon.') ; return false;">
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
         <button class="btn" type="submit">Request Samples</button>
       </form>
-      <p id="sampleMessage" style="display:none; margin-top:15px; color:green; font-weight:500;">Thank you for requesting samples! We'll send you high-quality previews shortly. Stay tuned for amazing wallpapers curated just for you!</p>
     </section>
 
     <section id="order">
       <h2>Order Now</h2>
-      <p style="margin-bottom:10px; font-size:1rem; font-weight:500;">💳 Pay via M‑Pesa to <strong>0797507477</strong> then place your order below:</p>
-      <form id="orderForm">
+      <form onsubmit="showToast('Thank you for your order! Please complete your M-Pesa payment to 0797507477. Your wallpaper will be delivered within 24 hours.') ; return false;">
         <input type="text" placeholder="Your Name" required>
-        <input type="text" placeholder="Your Email or Phone" required>
+        <input type="text" placeholder="Your Email or Phone Number" required>
         <textarea placeholder="Describe your wallpaper style" rows="4"></textarea>
         <button class="btn" type="submit">Place Order</button>
       </form>
-      <p id="orderMessage" style="display:none; margin-top:15px; color:green; font-weight:500;">Thank you for your order! Please ensure you've made your payment to <strong>0797507477</strong>. We’ll start working on your premium wallpaper and deliver it within 24 hours. You’ll also receive an email/SMS confirmation soon!</p>
     </section>
 
   </div>
@@ -248,40 +219,19 @@
     &copy; 2025 Kenya Aesthetics. All rights reserved.
   </footer>
 
-  <!-- Floating Share Button -->
-  <div class="share-container">
-    <div class="share-menu" id="shareMenu">
-      <a href="https://wa.me/?text=Check%20out%20Kenya%20Aesthetics%20Premium%20Wallpapers!%20https://kenyaaesthetics.github.io/kenya-aesthetics/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://twitter.com/intent/tweet?text=Check%20out%20Kenya%20Aesthetics%20Premium%20Wallpapers!%20https://kenyaaesthetics.github.io/kenya-aesthetics/" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
-    </div>
-    <!-- Apple-style share icon -->
-    <div class="share-toggle" onclick="toggleShareMenu()">
-      <i class="fas fa-share-square"></i>
-    </div>
-  </div>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
 
   <script>
-    function toggleShareMenu() {
-      const menu = document.getElementById('shareMenu');
-      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
     }
-
-    function copyLink() {
-      navigator.clipboard.writeText('https://kenyaaesthetics.github.io/kenya-aesthetics/');
-      alert('Link copied to clipboard!');
-    }
-
-    document.getElementById('sampleForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('sampleMessage').style.display = 'block';
-    });
-
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('orderMessage').style.display = 'block';
-    });
   </script>
 </body>
 </html>
